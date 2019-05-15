@@ -9,10 +9,7 @@ export const StateProvider = ({
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const value = useMemo(() => {
-    return {
-      state,
-      dispatch
-    };
+    return [state, dispatch];
   }, [state]);
   return (
     <StateContext.Provider value={value}>{children}</StateContext.Provider>
