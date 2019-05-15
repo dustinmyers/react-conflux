@@ -1,1 +1,1 @@
-export { StateProvider } from "./StateProvider";
+export { StateProvider } from './StateProvider';
