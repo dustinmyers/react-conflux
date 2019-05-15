@@ -1,1 +1,1 @@
-export { StateProvider, useStateValue } from "./StateProvider";
+export { StateProvider } from "./StateProvider";
