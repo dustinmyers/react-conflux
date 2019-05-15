@@ -4,6 +4,9 @@
   "description": "React Context + hooks flux implementation",
   "keywords": [],
   "main": "dist/react-conflux.min.js",
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.4",
