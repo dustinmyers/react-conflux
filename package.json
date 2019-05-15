@@ -1,20 +1,14 @@
 {
   "name": "react-conflux",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "React Context + hooks flux implementation",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-scripts": "3.0.0"
+    "react": "16.8.6"
   },
   "devDependencies": {},
-  "scripts": {
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dustinmyers/react-conflux.git"
