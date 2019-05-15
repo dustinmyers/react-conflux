@@ -1,4 +1,4 @@
-<h1><img src="'./logo/conflux-logo.png" alt="Conflux library logo" height="60" aria-lable="Conflux library logo" /></h1>
+<h1><img src="./logo/conflux-logo.png" alt="Conflux library logo" height="120" aria-lable="Conflux library logo" /></h1>
 
 Conflux is a modularized state management system utilizing the [Context API](https://reactjs.org/docs/context.html) and [React Hooks](https://reactjs.org/docs/hooks-intro.html) for the [React](https://reactjs.org/) ecosystem. It provides a predictable state container for applications in an elegant, streamlined, and developer-friendly manner.
 
@@ -6,7 +6,7 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 
 - [Why Use Conflux?](#why-use-conflux)
 - [Learn Conflux](#learn-conflux)
-- [Developer Experience](#developer-experience)
+- [Origins](#origins)
 - [Installation](#installation)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -19,7 +19,9 @@ Additionally, while most people use `Context` in React to pass global state up-a
 
 ## Learn Conflux
 
-## Developer Experience
+## Origins
+
+Dustin Myers wrote the Conflux patterns contained in this repository while searching for a better alternative to current state management libraries and frameworks. The goal was to produce modularity in component tree branches' state through the `Context API` using `React Hooks` while also preserving the ability to both thread state sideways to other branches as well as provide predictable, minimal code patterns.
 
 ## Installation
 
