@@ -1,7 +1,7 @@
 {
-  "name": "hooks-context-state-management",
+  "name": "react-conflux",
   "version": "1.0.0",
-  "description": "",
+  "description": "React Context + hooks flux implementation",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -17,5 +17,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustinmyers/react-conflux.git"
+  },
+  "author": "Dustin Myers, Nathan Thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dustinmyers/react-conflux/issues"
+  },
+  "homepage": "https://github.com/dustinmyers/react-conflux#readme"
 }
