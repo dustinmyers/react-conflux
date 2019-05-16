@@ -1,5 +1,4 @@
-import { StateProvider } from './store/index';
-import { useStateValue } from './hooks/index';
+import { StateProvider } from './store';
+import { useStateValue } from './hooks';
 
 export { StateProvider, useStateValue };
-// TODO: combineReducers, middleware

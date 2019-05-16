@@ -1,13 +1,33 @@
 import React, { useReducer, useMemo } from 'react';
 
+/**
+ * Create a Context.Provider wrapper for children components wherever it is applied
+ * to the component tree. This component can be called multiple times throughtout the
+ * application.
+ *
+ * @param {reducer} reducer A reducer function that contains a switch statement and, ultimately, returns state.
+ * The reducer can never be undefined or anything other than a type of function. They should return modified
+ * state if the action.type passed into them is defined or their initial state if the action.type
+ * passed into them is undefined.
+ *
+ * @param {initialState} initialState An object containing the intitial state of the application. While the
+ * initial state may be an empty object, it must always be of type object and defined.
+ *
+ * @param {StateContext} StateContext A created Context from the createContext() named export from React.
+ *
+ * @param {children} children The descending compontent tree JSX is passed in and placed inside the
+ * Context.Provider.
+ *
+ * @returns {JSX} Returns a JSX component for a Context.Provider setup and passes in the memoized value
+ * as well as the children of the Context component.
+ */
+
 export const StateProvider = ({
   reducer,
   initialState,
   StateContext,
   children
 }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
   if (typeof reducer !== 'function') {
     throw new Error(
       `The reducer must be a function. You might have forgotten to pass your reducer into your StateProvider.`
@@ -19,6 +39,20 @@ export const StateProvider = ({
       `State must be an object. You probably forgot to pass the initialState object into your StateContext.`
     );
   }
+
+  if (children === undefined || typeof children !== 'object') {
+    throw new Error(
+      `StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.`
+    );
+  }
+
+  if (!StateContext) {
+    throw new Error(
+      `StateContext is undefined. Please check your .createContext() method and what you are passing into your StateProvider.`
+    );
+  }
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const value = useMemo(() => {
     return [state, dispatch];
