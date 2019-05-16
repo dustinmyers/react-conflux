@@ -6,6 +6,9 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 
 - [Why Use Conflux?](#why-use-conflux)
 - [Learn Conflux](#learn-conflux)
+  - [A Brief Overview](#a-brief-overview)
+  - [Example Applications](#in-depth-examples)
+  - [Real-World Usage](#real-world-usage)
 - [Origins](#origins)
 - [Installation](#installation)
 - [Authors](#authors)
@@ -19,6 +22,12 @@ While `Context` and `Hooks` are relatively cutting-edge at the moment, the conce
 Additionally, while most people use `Context` in React to pass global state up-and-down the entire application, it also has the ability to be surgically scoped to a specific tree within an application's component architecture. As most large chunks of state are sometimes only needed inside of their assigned section of the application, modularity, maintainability, and performance can all be improved by segmenting state to specific limbs of the component tree.
 
 ## Learn Conflux
+
+### A Brief Overview
+
+### Example Applications
+
+### Real-World Usage
 
 ## Origins
 
