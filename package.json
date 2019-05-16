@@ -1,8 +1,23 @@
 {
   "name": "react-conflux",
   "version": "0.0.1",
-  "description": "React Context + hooks flux implementation",
-  "keywords": [],
+  "description": "React Context + Hooks implementation of the Flux pattern",
+  "keywords": [
+    "conflux",
+    "react-conflux",
+    "react",
+    "redux",
+    "flux",
+    "context",
+    "context api",
+    "hooks",
+    "react hooks",
+    "immutable",
+    "elm",
+    "functional",
+    "hot",
+    "reducer"
+  ],
   "main": "dist/react-conflux.min.js",
   "peerDependencies": {
     "react": "^16.8.6"
@@ -13,6 +28,7 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^7.1.5",
+    "jest": "^24.8.0",
     "react": "^16.8.6",
     "rollup": "^1.12.0",
     "rollup-plugin-babel": "^4.3.2",
@@ -20,7 +36,11 @@
     "rollup-plugin-uglify": "^6.0.2"
   },
   "scripts": {
-    "build": "rollup -c -o dist/react-conflux.min.js"
+    "build": "rollup -c -o dist/react-conflux.min.js",
+    "test": "jest --watch --verbose"
+  },
+  "jest": {
+    "testRegex": "(/test/.*\\.test\\.js)$"
   },
   "repository": {
     "type": "git",
