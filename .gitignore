@@ -11,4 +11,4 @@ yarn-debug.log*
 yarn-error.log*
 /.changelog
 .npm/
-src/store/.combineReducers
+/src/store/combineReducers

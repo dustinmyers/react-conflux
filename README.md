@@ -1,6 +1,8 @@
-<h1><img src="./logo/conflux-logo.png" alt="Conflux library logo" height="120" aria-lable="Conflux library logo" /></h1>
+<h1><img src="./logo/conflux-logo-dark.png" alt="Conflux library logo" height="120" aria-lable="Conflux library logo" /></h1>
 
-Conflux is a modularized state management system utilizing the [Context API](https://reactjs.org/docs/context.html) and [React Hooks](https://reactjs.org/docs/hooks-intro.html) for the [React](https://reactjs.org/) ecosystem. It provides a predictable and electively-segmented state container for applications in an elegant, streamlined, and developer-friendly manner.
+Conflux is a modularized state management system utilizing the [Context API](https://reactjs.org/docs/context.html) and [React Hooks](https://reactjs.org/docs/hooks-intro.html) for the [React](https://reactjs.org/) ecosystem.
+
+It provides predictable and optionally-nested state containers for applications in an elegant, streamlined, and developer-friendly manner.
 
 ## Table of Contents
 
