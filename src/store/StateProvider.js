@@ -48,7 +48,7 @@ export const StateProvider = ({
 
   if (Array.isArray(StateContext)) {
     throw new Error(
-      `StateContext cannot be an array. Please check what you passed into StateProvider as your StatContext object.`
+      `StateContext cannot be an array. Please check what you passed into StateProvider as your StateContext object.`
     );
   }
 

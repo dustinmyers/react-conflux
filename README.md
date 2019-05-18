@@ -34,8 +34,6 @@ Dustin Myers and Nathan Thomas wrote the Conflux patterns contained in this repo
 
 You create as many instances of `StateProvider` as you would like for modularized state management, and the beauty of Conflux is that you can nest them in any manner you choose.
 
-In order to change state inside of any context object, you must pull `state` and `dispatch` from the `useStateValue` hook and dispatch new state inside the dispatch to the reducer assigned to to that specific context.
-
 ```js
 /**
  * While intimidating at first, the process of implementing Conflux is actually really straightforward.
@@ -75,7 +73,7 @@ export const App = () => {
 const initialState = {
   inputText: "",
   listArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-  nameObject: { firstName: "Dustin", lastName: "Myers" }
+  nameObject: { firstName: "Marty", lastName: "McFly" }
 }
 
 /**
