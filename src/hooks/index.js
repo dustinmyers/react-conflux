@@ -24,7 +24,7 @@ export const useStateValue = StateContext => {
 
   if (!StateContext.Provider && !StateContext.Consumer) {
     throw new Error(
-      `Incorrect argument passed to useStateValue. You probably passed a variable other than your context object into it.`
+      `Incorrect argument passed to the useStateValue hook. You probably passed a variable other than your context object into it.`
     );
   }
 

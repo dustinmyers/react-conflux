@@ -27,13 +27,6 @@ export const StateProvider = ({ reducer, StateContext, children }) => {
     );
   }
 
-  // Error messages for the children components held inside StateProvider
-  if (children === undefined || typeof children !== 'object') {
-    throw new Error(
-      `StateContext cannot be an array. Please check what you passed into StateProvider as your StateContext object.`
-    );
-  }
-
   // Error messages for the StateContext object
   if (!StateContext) {
     throw new Error(
@@ -41,19 +34,12 @@ export const StateProvider = ({ reducer, StateContext, children }) => {
     );
   }
 
-  /**
-   * getRandomString is used to create a randomized alpha-numeric string to create the action
-   * type for the initial reducer call. This initial reducer call sets returns the initial
-   * state object from the reducer that will then be passed into useReducer.
-   *
-   * It will only update when state changes.
-   */
-  const getRandomString = () =>
-    Math.random()
-      .toString(36)
-      .substring(7);
-
-  const initialState = reducer(null, { type: `@conflux${getRandomString()}` });
+  // // Error messages for the children components held inside StateProvider
+  // if (children === undefined || typeof children !== 'object') {
+  //   throw new Error(
+  //     `StateContext cannot be an array. Please check what you passed into StateProvider as your StateContext object.`
+  //   );
+  // }
 
   if (
     children === undefined ||
@@ -66,8 +52,25 @@ export const StateProvider = ({ reducer, StateContext, children }) => {
   }
 
   /**
+   * getRandomString is used to create a randomized alpha-numeric string to create the action
+   * type for the initial reducer call. This initial reducer call sets returns the initial
+   * state object from the reducer that will then be passed into useReducer.
+   *
+   * It will only update when state changes.
+   */
+
+  const getRandomString = () =>
+    Math.random()
+      .toString(36)
+      .substring(7);
+
+  const initialState = reducer(undefined, {
+    type: `@conflux${getRandomString()}`
+  });
+
+  /**
    * Uses the useReducer hook to pass in a reducer and initialState. It returns
-   * an array that can be desctructured into state and a dispatch function.
+   * an array that can be destructured into state and a dispatch function.
    */
 
   const [state, dispatch] = useReducer(reducer, initialState);
