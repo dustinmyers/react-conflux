@@ -12,9 +12,13 @@ import { useContext } from 'react';
  */
 
 export const useStateValue = StateContext => {
+  /**
+   * StateContext error messages for undefined and incorrect data types passed into useStateValue hook
+   */
+
   if (StateContext === undefined) {
     throw new Error(
-      `The StateContext object is undefined. You probably forgot to pass the StateContext object into your useStateValue hook.`
+      `The StateContext object is undefined in your useStateValue hook. You probably forgot to pass the StateContext object into your useStateValue hook.`
     );
   }
 
@@ -31,6 +35,11 @@ export const useStateValue = StateContext => {
    */
 
   const context = useContext(StateContext);
+
+  /**
+   * context error message for if context returns undefined. This happens when the StateContext passed into
+   * the useStateValue hook is used in a component which is not a child of that context's Provider.
+   */
 
   if (context === undefined) {
     throw new Error(

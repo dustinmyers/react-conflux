@@ -20,21 +20,24 @@ import React, { useReducer, useMemo } from 'react';
  */
 
 export const StateProvider = ({ reducer, StateContext, children }) => {
+  // Error messages for the reducer object
   if (typeof reducer !== 'function') {
     throw new Error(
       `The reducer must be a function. You might have forgotten to pass your reducer into your StateProvider.`
     );
   }
 
+  // Error messages for the children components held inside StateProvider
   if (children === undefined || typeof children !== 'object') {
     throw new Error(
-      `StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.`
+      `StateContext cannot be an array. Please check what you passed into StateProvider as your StatContext object.`
     );
   }
 
+  // Error messages for the StateContext object
   if (!StateContext) {
     throw new Error(
-      `StateContext is undefined. Please check your .createContext() method and what you are passing into your StateProvider.`
+      `StateContext is undefined. Please check your createContext method and what you are passing into your StateProvider.`
     );
   }
 
@@ -51,6 +54,21 @@ export const StateProvider = ({ reducer, StateContext, children }) => {
       .substring(7);
 
   const initialState = reducer(null, { type: `@conflux${getRandomString()}` });
+
+  if (
+    children === undefined ||
+    typeof children !== 'object' ||
+    !Object.keys(children).length
+  ) {
+    throw new Error(
+      `StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.`
+    );
+  }
+
+  /**
+   * Uses the useReducer hook to pass in a reducer and initialState. It returns
+   * an array that can be desctructured into state and a dispatch function.
+   */
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
