@@ -53,7 +53,6 @@ import { StateProvider, useStateValue } from 'react-conflux';
 export const App = () => {
   return (
     <StateProvider
-      initialState={initialState}
       reducer={reducer}
       StateContext={StateContext}
     >
@@ -78,6 +77,8 @@ const initialState = {
 
 /**
  * Reducers are pure functions that must take in some state, an action, and return state.
+ * Note that this is where we set the default value of the state parameter to be the initialState
+ * object.
  *
  * Here is an example of a reducer and its corresponding switch statement; in this
  * example, we're taking in a new to-do item and setting it to state.
