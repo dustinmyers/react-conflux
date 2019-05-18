@@ -2,18 +2,15 @@ import React, { useReducer, useMemo } from 'react';
 
 /**
  * Create a Context.Provider wrapper for children components wherever it is applied
- * to the component tree. This component can be called multiple times throughtout the
+ * to the component tree. This component can be called multiple times throughout the
  * application.
  *
- * @param {reducer} reducer A reducer function that contains a switch statement and, ultimately, returns state.
- * The reducer can never be undefined or anything other than a type of function. They should return modified
- * state if the action.type passed into them is defined or their initial state if the action.type
- * passed into them is undefined.
+ * @param {reducer} reducer A reducer function that contains a switch statement and, ultimately, returns a
+ * state object. The reducer can never be undefined or anything other than a type of function. They should
+ * return modified state if the action.type passed into them is defined or their initial state if
+ * the action.type passed into them is undefined.
  *
- * @param {initialState} initialState An object containing the intitial state of the application. While the
- * initial state may be an empty object, it must always be of type object and defined.
- *
- * @param {StateContext} StateContext A created Context from the createContext named export from React.
+ * @param {StateContext} StateContext A Context object created from the createContext function from React.
  *
  * @param {children} children The descending compontent tree JSX is passed in and placed inside the
  * Context.Provider.
@@ -22,43 +19,41 @@ import React, { useReducer, useMemo } from 'react';
  * as well as the children of the Context component.
  */
 
-export const StateProvider = ({
-  reducer,
-  initialState,
-  StateContext,
-  children
-}) => {
+export const StateProvider = ({ reducer, StateContext, children }) => {
   // Error messages for the reducer object
-
   if (typeof reducer !== 'function') {
     throw new Error(
       `The reducer must be a function. You might have forgotten to pass your reducer into your StateProvider.`
     );
   }
 
-  // Error messages for the initialState object
-
-  if (typeof initialState !== 'object' || Array.isArray(initialState)) {
-    throw new Error(
-      `The initialState must be an object. You probably forgot to pass the initialState object into your StateContext.`
-    );
-  }
-
-  // Error messages for the StateContext object
-
-  if (Array.isArray(StateContext)) {
+  // Error messages for the children components held inside StateProvider
+  if (children === undefined || typeof children !== 'object') {
     throw new Error(
       `StateContext cannot be an array. Please check what you passed into StateProvider as your StateContext object.`
     );
   }
 
+  // Error messages for the StateContext object
   if (!StateContext) {
     throw new Error(
       `StateContext is undefined. Please check your createContext method and what you are passing into your StateProvider.`
     );
   }
 
-  // Error messages for the children components held inside StateProvider
+  /**
+   * getRandomString is used to create a randomized alpha-numeric string to create the action
+   * type for the initial reducer call. This initial reducer call sets returns the initial
+   * state object from the reducer that will then be passed into useReducer.
+   *
+   * It will only update when state changes.
+   */
+  const getRandomString = () =>
+    Math.random()
+      .toString(36)
+      .substring(7);
+
+  const initialState = reducer(null, { type: `@conflux${getRandomString()}` });
 
   if (
     children === undefined ||
@@ -78,10 +73,11 @@ export const StateProvider = ({
   const [state, dispatch] = useReducer(reducer, initialState);
 
   /**
-   * The useMemo hook returns state and dispatch while guarding against unnecessary refreshes of the component
+   * The useMemo hook returns state and dispatch while guarding against unnecessary rerendering of the component
    * tree contained within this StateContext.Provider.
    *
-   * It will only update when state changes.
+   * It will only update when the state object in value changes, rather than any other state/props outside of
+   * these values.
    */
 
   const value = useMemo(() => {
@@ -94,8 +90,8 @@ export const StateProvider = ({
    * state and dispatch) is passed into the Provider per the requirements for the Context API
    * in the documentation at: https://reactjs.org/docs/context.html
    *
-   * This array will be available for desctructuring inside components contained in the state tree with the
-   * Conflux useStateValue custom hook.
+   * This array will be available for destructuring inside components contained in the state tree with
+   * react-conflux's custom hook "useStateValue".
    */
 
   return (
