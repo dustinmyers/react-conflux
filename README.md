@@ -26,7 +26,7 @@ Conflux upgrades state management by combining the best facets of `Redux`, `Cont
 
 ## Origins
 
-Dustin Myers and Nathan Thomas wrote the Conflux patterns contained in this repository while searching for a better alternative to current state management libraries and frameworks. The goal was to produce modularity in component tree branches' state through the `Context API` using `React Hooks` while also preserving the ability to both thread state sideways to other branches as well as provide predictable, minimal code patterns.
+Dustin Myers and Nathan Thomas wrote the Conflux patterns contained in this repository while searching for a better alternative to current state management libraries and frameworks. Too many of the current options are either boilerplate-heavy or unnecessesarily complicated. The goal was to produce modularity in component tree branches' state in a really easy manner. This was achieved by using the `Context API` and `React Hooks`, providing modular state with minimal code patterns.
 
 ## Learn Conflux
 

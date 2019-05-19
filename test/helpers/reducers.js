@@ -3,10 +3,10 @@ import {
   GET_DATA_SUCCESS,
   GET_DATA_ERROR,
   THROW_ERROR,
-  UNKNOWN
+  UNKNOWN,
 } from './constants';
 
-export const testReducer = (state = {}, action) => {
+export const testReducer = (state = { text: 'Testing' }, action) => {
   switch (action.payload) {
     default:
       return state;

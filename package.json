@@ -38,7 +38,8 @@
   },
   "scripts": {
     "build": "rollup -c -o dist/react-conflux.min.js",
-    "test": "jest --watch --verbose"
+    "test": "jest --watch --verbose",
+    "lint": "npx lint"
   },
   "jest": {
     "testRegex": "(/test/.*\\.test\\.js)$"

@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import { StateProvider } from '../src/store';
+import { StateProvider } from '../src';
 import { TestContext } from './helpers/contexts';
 import { testReducer } from './helpers/reducers';
 
 describe('<StateProvider />', () => {
   describe('tests that the component will mount successfully with all arguments', () => {
-    it('should mount successfully without crashing when wrapped around a component', () => {
+    it('should mount successfully without crashing when wrapped around a child component', () => {
       const helpers = TestRenderer.create(
         <StateProvider reducer={testReducer} StateContext={TestContext}>
           <p>Testing</p>
-        </StateProvider>
+        </StateProvider>,
       );
       expect(helpers).toBeTruthy();
     });
@@ -27,7 +27,7 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider StateContext={TestContext}>
             <p>Testing</p>
-          </StateProvider>
+          </StateProvider>,
         );
       }).toThrow(errorMessage);
     });
@@ -38,7 +38,7 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider reducer={{}} StateContext={TestContext}>
             <p>Testing</p>
-          </StateProvider>
+          </StateProvider>,
         );
       }).toThrow(errorMessage);
     });
@@ -49,7 +49,7 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider reducer={'Dude'} StateContext={TestContext}>
             <p>Testing</p>
-          </StateProvider>
+          </StateProvider>,
         );
       }).toThrow(errorMessage);
     });
@@ -60,22 +60,21 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider reducer={'Dude'} StateContext={TestContext}>
             <p>Testing</p>
-          </StateProvider>
+          </StateProvider>,
         );
       }).toThrow(errorMessage);
     });
   });
 
   describe('tests the children argument passed into the <StateProvider /> component', () => {
+    const errorMessage =
+      'StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.';
+
     it('should throw an error when no children are passed into it', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
-        return renderer.render(
-          <StateProvider reducer={testReducer} StateContext={TestContext} />
-        );
-      }).toThrow(
-        'StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.'
-      );
+        return renderer.render(<StateProvider reducer={testReducer} StateContext={TestContext} />);
+      }).toThrow(errorMessage);
     });
 
     it('should throw an error when children are not of type "object"', () => {
@@ -85,11 +84,9 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider reducer={testReducer} StateContext={TestContext}>
             {string}
-          </StateProvider>
+          </StateProvider>,
         );
-      }).toThrow(
-        'StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.'
-      );
+      }).toThrow(errorMessage);
     });
 
     it('should throw an error when children are an empty object', () => {
@@ -98,11 +95,9 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider reducer={testReducer} StateContext={TestContext}>
             {}
-          </StateProvider>
+          </StateProvider>,
         );
-      }).toThrow(
-        'StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.'
-      );
+      }).toThrow(errorMessage);
     });
   });
 });
