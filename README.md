@@ -22,7 +22,7 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 
 While most people use `Context` in React to pass a single global state up-and-down the entire application, it also has the ability to be surgically scoped to a specific component tree within an application's component architecture. As most large chunks of state are sometimes only needed inside of their assigned section of the application, modularity, maintainability, and performance can all be improved by segmenting state to specific limbs of the component tree.
 
-Conflux upgrades state management by combining the best facets of `Redux`, `Context`, and `React Hooks`. Developers can define state to a specific component, state tree, or entire application. In fact, all three of these are possible at the same time through the use of multiple StateProviders. It then becomes a trivial matter to descture out state for use in your application.
+Conflux upgrades state management by combining the best facets of `Redux`, `Context`, and `React Hooks`. Developers can define state to a specific component, state tree, or the entire application. In fact, all three of these are possible at the same time through the use of multiple StateProviders. It then becomes a trivial matter to descture out state for use in your application.
 
 ## Origins
 
@@ -56,7 +56,7 @@ export const App = () => {
       reducer={reducer}
       StateContext={StateContext}
     >
-      <App />
+      <ChildrenComponents />
     </StateProvider>
   )
 }
@@ -77,8 +77,10 @@ const initialState = {
 
 /**
  * Reducers are pure functions that must take in some state, an action, and return state.
- * Note that this is where we set the default value of the state parameter to be the initialState
- * object.
+ *
+ * Note that the first paremeter of the reducer function, state, has a default value of inititalState,
+ * the beginning state of our reducer. The second praameter, the action, is an object sent into
+ * our reducer from our dispatch function which we will see in just a minute.
  *
  * Here is an example of a reducer and its corresponding switch statement; in this
  * example, we're taking in a new to-do item and setting it to state.
@@ -100,10 +102,6 @@ const toDoReducer = (state = intitialState, action) => {
 };
 
 /**
- * The first paremeter of the reducer function, the state, is initially the beginning state
- * of our application. The second praameter, the action, is an object sent into our reducer
- * from our dispatch function which we will see in just a minute.
- *
  * Every action object must have a type and payload; the type allows us to navigate the cases
  * in our switch statement (such as in the example reducer above), and the payload is the state
  * which we will update in our reducer.
