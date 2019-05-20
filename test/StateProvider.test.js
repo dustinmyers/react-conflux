@@ -7,7 +7,7 @@ import { testReducer } from './helpers/reducers';
 
 describe('<StateProvider />', () => {
   describe('tests that the component will mount successfully with all arguments', () => {
-    it('should mount successfully without crashing when wrapped around a child component', () => {
+    it('should mount successfully without crashing', () => {
       const helpers = TestRenderer.create(
         <StateProvider reducer={testReducer} StateContext={TestContext}>
           <p>Testing</p>
@@ -79,11 +79,10 @@ describe('<StateProvider />', () => {
 
     it('should throw an error when children are not of type "object"', () => {
       const renderer = new ShallowRenderer();
-      const string = 'Marty, we have to go back!';
       expect(() => {
         return renderer.render(
           <StateProvider reducer={testReducer} StateContext={TestContext}>
-            {string}
+            {'Marty, we have to go back!'}
           </StateProvider>,
         );
       }).toThrow(errorMessage);
