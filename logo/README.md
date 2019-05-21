@@ -28,4 +28,4 @@ We ask that you would only use the original logos provided to you on this page. 
 
 ## License
 
-The Conflux logo is licensed under CCO, waiving all copyright, available here: [LICENSE](../LICENSE)
+The Conflux logo is licensed under CCO, waiving all copyright, available [here](../LICENSE).

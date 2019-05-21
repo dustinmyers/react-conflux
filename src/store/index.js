@@ -1,5 +1,3 @@
-/**
- * Provides a named export of StateProvider from the /store directory
- */
+import StateProvider from './StateProvider';
 
-export { StateProvider } from './StateProvider';
+export default StateProvider;
