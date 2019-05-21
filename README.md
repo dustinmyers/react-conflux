@@ -12,6 +12,7 @@ Conflux is a modularized state management system utilizing the [Context API](htt
   - [Real-World Usage](#real-world-usage)
 - [Installation](#installation)
 - [Contributing and Getting Involved](#contributing-and-getting-involved)
+- [Logo](#logo)
 - [Authors](#authors)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -148,7 +149,7 @@ dispatch({ type: 'ADD_TODO', payload: { toDo: "Marty, we have to go back!" } });
 To install the most recent stable version:
 
 ```
-npm install --save react-conflux
+npm install react-conflux
 ```
 
 or
@@ -162,6 +163,10 @@ At this time, no other dependencies are required for Conflux outside of running 
 ## Contributing and Getting Involved
 
 If you spot a bug or would like to request a feature, we welcome and are grateful for any contributions from the community. Please review the process for contributing to this project by reading the [contribution guidelines](CONTRIBUTING.md).
+
+## Logo
+
+Please read the logo guidelines on use and copyright as well as find official PNG files on [GitHub](./logo/README.md).
 
 ## Authors
 

@@ -22,8 +22,10 @@ Adhering to the following process is the best way to get your work included in t
    ```bash
    # Clone your fork of the repo into the current directory
    git clone git@github.com/<your-username>/react-conflux.git
+
    # Navigate to the newly cloned directory
    cd react-conflux/
+
    # Assign the original repo to a remote called "upstream"
    git remote add upstream git@github.com:nwthomas/react-conflux.git
    ```
