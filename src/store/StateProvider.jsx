@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo } from 'react';
+import React, { useReducer, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
  * value as well as the children of the Context component.
  */
 
-const StateProvider = ({ reducer, stateContext: StateContext, children }) => {
+const StateProvider = ({ reducer, StateContext, children }) => {
   // Error messages for the reducer object
   if (typeof reducer !== 'function') {
     throw new Error(
@@ -31,7 +31,7 @@ const StateProvider = ({ reducer, stateContext: StateContext, children }) => {
   // Error messages for the StateContext object
   if (!StateContext) {
     throw new Error(
-      'StateContext is undefined. Please check your createContext method and what you are passing into your StateProvider.'
+      'StateContext prop is undefined. Please check your createContext method and what you are passing into your StateProvider.'
     );
   }
 
@@ -98,8 +98,8 @@ const StateProvider = ({ reducer, stateContext: StateContext, children }) => {
 
 StateProvider.propTypes = {
   reducer: PropTypes.func.isRequired,
-  stateContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  children: PropTypes.element.isRequired
+  StateContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired
 };
 
 export default StateProvider;
