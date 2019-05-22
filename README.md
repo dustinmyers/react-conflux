@@ -23,7 +23,7 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 
 While most people use `Context` in React to pass a single global state up-and-down the entire application, it also has the ability to be surgically scoped to a specific component tree within an application's component architecture. As most large chunks of state are sometimes only needed inside of their assigned section of the application, modularity, maintainability, and performance can all be improved by segmenting state to specific limbs of the component tree.
 
-Conflux upgrades state management by combining the best facets of `Redux`, `Context`, and `React Hooks`. Developers can define state to a specific component, state tree, or the entire application. In fact, all three of these are possible at the same time through the use of multiple StateProviders. It then becomes a trivial matter to descture out state for use in your application.
+Conflux upgrades state management by combining the best facets of `Redux`, `Context`, and `React Hooks`. Developers can define state to a specific component, state tree, or the entire application. In fact, all three of these are possible at the same time through the use of multiple StateProviders. It then becomes a trivial matter to destructure out state for use in your application.
 
 ## Origins
 
@@ -79,8 +79,8 @@ const initialState = {
 /**
  * Reducers are pure functions that must take in some state, an action, and return state.
  *
- * Note that the first paremeter of the reducer function, state, has a default value of inititalState,
- * the beginning state of our reducer. The second praameter, the action, is an object sent into
+ * Note that the first parameter of the reducer function, state, has a default value of inititalState,
+ * the beginning state of our reducer. The second parameter, the action, is an object sent into
  * our reducer from our dispatch function which we will see in just a minute.
  *
  * Here is an example of a reducer and its corresponding switch statement; in this
