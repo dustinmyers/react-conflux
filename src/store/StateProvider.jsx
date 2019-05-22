@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  * function. They should return modified state if the action.type passed into them is defined
  * or their initial state if the action.type passed into them is undefined.
  *
- * @param {StateContext} StateContext A Context object created from the createContext function
+ * @param {stateContext} stateContext A Context object created from the createContext function
  * from React.
  *
  * @param {children} children The descending compontent tree JSX is passed in and placed inside
@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
  * value as well as the children of the Context component.
  */
 
-const StateProvider = ({ reducer, StateContext, children }) => {
+const StateProvider = ({ reducer, stateContext: StateContext, children }) => {
   // Error messages for the reducer object
   if (typeof reducer !== 'function') {
     throw new Error(
@@ -98,14 +98,7 @@ const StateProvider = ({ reducer, StateContext, children }) => {
 
 StateProvider.propTypes = {
   reducer: PropTypes.func.isRequired,
-  StateContext: PropTypes.shape({
-    Provider: PropTypes.shape({
-      $$typeof: PropTypes.symbol.isRequired
-    }).isRequired,
-    Consumer: PropTypes.shape({
-      $$typeof: PropTypes.symbol.isRequired
-    }).isRequired
-  }).isRequired,
+  stateContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   children: PropTypes.element.isRequired
 };
 
