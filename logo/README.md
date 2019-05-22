@@ -4,23 +4,23 @@ The following logos are the only valid Conflux logos. Don't use any other logos 
 
 ## Conflux Atomic Pattern
 
-<img src='./conflux-logo-atom.png' alt='Conflux logo' width='300'>
+<img src='https://raw.githubusercontent.com/dustinmyers/react-conflux/master/logo/conflux-logo-atom.png' alt='Conflux logo' width='300'>
 
-Download this logo as a [PNG](./conflux-logo-atom.png)
+Download this logo as a [PNG](https://raw.githubusercontent.com/dustinmyers/react-conflux/master/logo/conflux-logo-atom.png)
 
 ## Conflux Logo Dark Pattern
 
-<img src='./conflux-logo-dark.png' alt='Conflux dark logo' width='500'>
+<img src='https://raw.githubusercontent.com/dustinmyers/react-conflux/master/logo/conflux-logo-dark.png' alt='Conflux dark logo' width='500'>
 
-Download this logo as a [PNG](./conflux-logo-dark.png)
+Download this logo as a [PNG](https://raw.githubusercontent.com/dustinmyers/react-conflux/master/logo/conflux-logo-dark.png)
 
 ## Conflux Logo Light Pattern
 
-<img src='./conflux-logo-light.png' alt='Conflux light logo' width='500'>
+<img src='https://raw.githubusercontent.com/dustinmyers/react-conflux/master/logo/conflux-logo-light.png' alt='Conflux light logo' width='500'>
 
 _(You can't see the text because it's white, but it's there.)_
 
-Download this logo as a [PNG](./conflux-logo-light.png)
+Download this logo as a [PNG](https://raw.githubusercontent.com/dustinmyers/react-conflux/master/logo/conflux-logo-light.png)
 
 ## Logo Modifications
 
