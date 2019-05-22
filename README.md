@@ -55,7 +55,7 @@ export const App = () => {
   return (
     <StateProvider
       reducer={reducer}
-      stateContext={StateContext}
+      StateContext={StateContext}
     >
       <ChildrenComponents />
     </StateProvider>
