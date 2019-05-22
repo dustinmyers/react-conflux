@@ -8,7 +8,7 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 - [Origins](#origins)
 - [Learn Conflux](#learn-conflux)
   - [A Brief Overview](#a-brief-overview)
-  - [Example Applications](#in-depth-examples)
+  - [Example Applications](#example-applications)
   - [Real-World Usage](#real-world-usage)
 - [Installation](#installation)
 - [Contributing and Getting Involved](#contributing-and-getting-involved)
