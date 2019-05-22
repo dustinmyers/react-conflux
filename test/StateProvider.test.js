@@ -11,7 +11,7 @@ describe('<StateProvider />', () => {
       const helpers = TestRenderer.create(
         <StateProvider reducer={testReducer} StateContext={TestContext}>
           <p>Testing</p>
-        </StateProvider>,
+        </StateProvider>
       );
       expect(helpers).toBeTruthy();
     });
@@ -27,7 +27,7 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider StateContext={TestContext}>
             <p>Testing</p>
-          </StateProvider>,
+          </StateProvider>
         );
       }).toThrow(errorMessage);
     });
@@ -38,7 +38,7 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider reducer={{}} StateContext={TestContext}>
             <p>Testing</p>
-          </StateProvider>,
+          </StateProvider>
         );
       }).toThrow(errorMessage);
     });
@@ -47,9 +47,9 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer={'Dude'} StateContext={TestContext}>
+          <StateProvider reducer="Dude" StateContext={TestContext}>
             <p>Testing</p>
-          </StateProvider>,
+          </StateProvider>
         );
       }).toThrow(errorMessage);
     });
@@ -58,9 +58,9 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer={'Dude'} StateContext={TestContext}>
+          <StateProvider reducer="Dude" StateContext={TestContext}>
             <p>Testing</p>
-          </StateProvider>,
+          </StateProvider>
         );
       }).toThrow(errorMessage);
     });
@@ -73,7 +73,9 @@ describe('<StateProvider />', () => {
     it('should throw an error when no children are passed into it', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
-        return renderer.render(<StateProvider reducer={testReducer} StateContext={TestContext} />);
+        return renderer.render(
+          <StateProvider reducer={testReducer} StateContext={TestContext} />
+        );
       }).toThrow(errorMessage);
     });
 
@@ -83,7 +85,7 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider reducer={testReducer} StateContext={TestContext}>
             {'Marty, we have to go back!'}
-          </StateProvider>,
+          </StateProvider>
         );
       }).toThrow(errorMessage);
     });
@@ -94,7 +96,7 @@ describe('<StateProvider />', () => {
         return renderer.render(
           <StateProvider reducer={testReducer} StateContext={TestContext}>
             {}
-          </StateProvider>,
+          </StateProvider>
         );
       }).toThrow(errorMessage);
     });
