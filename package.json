@@ -1,6 +1,6 @@
 {
   "name": "react-conflux",
-  "version": "0.0.2-beta.4",
+  "version": "0.0.2-beta.5",
   "description": "React Context + Hooks implementation of the Flux pattern",
   "keywords": [
     "conflux",
