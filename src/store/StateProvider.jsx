@@ -100,12 +100,10 @@ StateProvider.propTypes = {
   reducer: PropTypes.func.isRequired,
   StateContext: PropTypes.shape({
     Provider: PropTypes.shape({
-      $$typeof: PropTypes.symbol.isRequired,
-      _context: PropTypes.array.isRequired
+      $$typeof: PropTypes.symbol.isRequired
     }).isRequired,
     Consumer: PropTypes.shape({
-      $$typeof: PropTypes.symbol.isRequired,
-      _context: PropTypes.array.isRequired
+      $$typeof: PropTypes.symbol.isRequired
     }).isRequired
   }).isRequired,
   children: PropTypes.element.isRequired
