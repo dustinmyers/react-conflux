@@ -142,6 +142,10 @@ dispatch({ type: 'ADD_TODO', payload: { toDo: "Marty, we have to go back!" } });
 
 ### Example Applications
 
+We try, whenever possible, to give you a corresponding CodeSandbox for every sample so that you can play with the code online.
+
+- Counter [CodeSandbox](https://codesandbox.io/s/is5dx)
+
 ### Real-World Usage
 
 ## Installation
