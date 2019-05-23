@@ -27,7 +27,7 @@ Adhering to the following process is the best way to get your work included in t
    cd react-conflux/
 
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream git@github.com:nwthomas/react-conflux.git
+   git remote add upstream git@github.com:dustinmyers/react-conflux.git
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:
