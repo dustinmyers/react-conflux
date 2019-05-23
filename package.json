@@ -62,7 +62,7 @@
     "url": "git+https://github.com/dustinmyers/react-conflux.git"
   },
   "author": "Dustin Myers, Nathan Thomas",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dustinmyers/react-conflux/issues"
   },
