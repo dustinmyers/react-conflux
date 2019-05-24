@@ -13,3 +13,4 @@ yarn-error.log*
 .npm/
 /website
 .env
+/test/useStateValue.test.js

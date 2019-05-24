@@ -63,20 +63,9 @@ export const App = () => {
 }
 
 /**
- * The three parameters required by the StateProvider component are an intialState object, a reducer
- * function, and a StateContext object.
+ * The two parameters required by the StateProvider component are a reducer function and a
+ * StateContext object.
  *
- * The first parameter, the initialState object, contains the starting state necessary for the given
- * StateProvider it's being passed into. An example of this for demonstration purposes is below.
- */
-
-const initialState = {
-  inputText: "",
-  listArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-  nameObject: { firstName: "Marty", lastName: "McFly" }
-}
-
-/**
  * Reducers are pure functions that must take in some state, an action, and return state.
  *
  * Note that the first parameter of the reducer function, state, has a default value of inititalState,
@@ -103,14 +92,21 @@ const toDoReducer = (state = intitialState, action) => {
 };
 
 /**
- * Every action object must have a type and payload; the type allows us to navigate the cases
- * in our switch statement (such as in the example reducer above), and the payload is the state
- * which we will update in our reducer.
+ * The initialState object (which we are about to pass into our reducer in a minute) contains
+ * the starting state necessary for the given StateProvider it's being passed into.
  *
- * Here's an example of what an action object looks like.
+ * An example of this for demonstration purposes is below.
  */
 
-const action = { type: 'ADD_TODO', payload: { toDo: "Marty, we have to go back!" } }
+const initialState = {
+  inputText: "",
+  listArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  nameObject: { firstName: "Marty", lastName: "McFly" },
+  toDoItems: [
+    { id: 1, name: "Meddle with the future" },
+    { id: 2, name: "Check out the past" }
+  ]
+}
 
 /**
  * The StateContext object is created in your application by importing createContext from react and
@@ -119,6 +115,17 @@ const action = { type: 'ADD_TODO', payload: { toDo: "Marty, we have to go back!"
  */
 
 const ExampleContext = createContext();
+
+
+/**
+ * Every action object must have a type and payload; the type allows us to navigate the cases
+ * in our switch statement (such as in the example reducer above), and the payload is the state
+ * which we will update in our reducer.
+ *
+ * Here's an example of what an action object looks like.
+ */
+
+const action = { type: 'ADD_TODO', payload: { id: 3, name: "Marty, we have to go back!" } }
 
 /**
  * The last step to using Conflux is to rig it up in your components within the component tree
@@ -136,7 +143,7 @@ const [state, dispatch] = useStateValue(ExampleContext);
 
 const { inputText } = state;
 
-dispatch({ type: 'ADD_TODO', payload: { toDo: "Marty, we have to go back!" } });
+dispatch({ type: 'ADD_TODO', payload: { id: 3, name: "Marty, we have to go back!" } });
 
 ```
 

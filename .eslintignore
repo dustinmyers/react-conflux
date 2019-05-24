@@ -3,4 +3,4 @@ logo/**
 dist/**
 test/**
 .vscode/**
-.rollup.config.js
+rollup.config.js

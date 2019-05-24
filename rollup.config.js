@@ -11,7 +11,7 @@ const globals = {
   'react-dom': 'ReactDOM'
 };
 
-// Common JS Modules
+// CommonJS Modules
 const cjs = [
   {
     input,
