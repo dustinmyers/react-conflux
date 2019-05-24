@@ -10,7 +10,6 @@ const globals = {
   react: 'React',
   'react-dom': 'ReactDOM'
 };
-const globalName = 'FP';
 
 // Common JS Modules
 const cjs = [
