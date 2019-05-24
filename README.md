@@ -153,7 +153,9 @@ We try, whenever possible, to give you a corresponding CodeSandbox for every sam
 
 - **Counter** [Source Code](https://github.com/dustinmyers/react-conflux/tree/master/examples/counter) | [CodeSandbox](https://codesandbox.io/s/is5dx)
 - **To-Do App** [CodeSandbox](https://codesandbox.io/s/todo-app-conflux-example-2v6b7)
-- **With Data Fetch** [CodeSandbox](https://codesandbox.io/s/reactconflux-data-fetch-example-r52e9)
+- **With Data Fetch** 
+  - [TV Shows](https://codesandbox.io/s/reactconflux-data-fetch-example-r52e9)
+  - [Random Animals](https://codesandbox.io/s/reactconflux-animals-example-58e3l)
 
 ### Real-World Usage
 
