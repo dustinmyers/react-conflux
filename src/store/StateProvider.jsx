@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo, useState } from 'react';
+import React, { useReducer, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 /**

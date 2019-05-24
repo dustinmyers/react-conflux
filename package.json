@@ -27,8 +27,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.4.5",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^7.1.5",
     "eslint": "^5.16.0",
@@ -50,7 +52,7 @@
     "rollup-plugin-uglify": "^6.0.2"
   },
   "scripts": {
-    "build": "rollup -c -o dist/react-conflux.min.js",
+    "build": "rollup -c",
     "test": "jest --watch --verbose",
     "lint": "npx eslint --fix ./src/*"
   },
