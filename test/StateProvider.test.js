@@ -18,6 +18,16 @@ describe('<StateProvider />', () => {
   });
 
   describe('tests the reducer argument passed into the <StateProvider /> component', () => {
+    /**
+     * Rids console.error in tests from PropTypes where we're specficially trying to test if
+     * error occurs.
+     *  */
+
+    beforeEach(() => {
+      const originalError = console.error;
+      console.error = jest.fn();
+    });
+
     const errorMessage =
       'The reducer must be a function. You might have forgotten to pass your reducer into your StateProvider.';
 
@@ -67,6 +77,11 @@ describe('<StateProvider />', () => {
   });
 
   describe('tests the children argument passed into the <StateProvider /> component', () => {
+    beforeEach(() => {
+      const originalError = console.error();
+      console.error = jest.fn();
+    });
+
     const errorMessage =
       'StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.';
 
