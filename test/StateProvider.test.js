@@ -24,7 +24,6 @@ describe('<StateProvider />', () => {
      *  */
 
     beforeEach(() => {
-      const originalError = console.error;
       console.error = jest.fn();
     });
 
@@ -78,7 +77,6 @@ describe('<StateProvider />', () => {
 
   describe('tests the children argument passed into the <StateProvider /> component', () => {
     beforeEach(() => {
-      const originalError = console.error();
       console.error = jest.fn();
     });
 
