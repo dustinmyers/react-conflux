@@ -8,19 +8,19 @@ import { testReducer } from './helpers/reducers';
 describe('<StateProvider />', () => {
   describe('tests that the component will mount successfully with all arguments', () => {
     it('should mount successfully without crashing', () => {
-      const helpers = TestRenderer.create(
+      const tree = TestRenderer.create(
         <StateProvider reducer={testReducer} StateContext={TestContext}>
           <p>Testing</p>
         </StateProvider>
       );
-      expect(helpers).toBeTruthy();
+      expect(tree).toBeTruthy();
     });
   });
 
   describe('tests the reducer argument passed into the <StateProvider /> component', () => {
     /**
      * Rids console.error in tests from PropTypes where we're specficially trying to test if
-     * error occurs.
+     * custom error messages occur when not passing specific props.
      *  */
 
     beforeEach(() => {
