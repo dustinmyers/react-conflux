@@ -27,7 +27,7 @@ Conflux upgrades state management by combining the best facets of `Redux`, `Cont
 
 ## Origins
 
-Dustin Myers and Nathan Thomas wrote the Conflux patterns contained in this repository while searching for a better alternative to current state management libraries and frameworks. Too many of the current options are either boilerplate-heavy or unnecessesarily complicated. The goal was to produce modularity in component tree branches' state in a really easy manner. This was achieved by using the `Context API` and `React Hooks`, providing modular state with minimal code patterns.
+Dustin Myers and Nathan Thomas wrote the Conflux patterns contained in this repository while searching for a better alternative to current state management libraries and frameworks. Too many of the current options are either boilerplate-heavy or unnecessarily complicated. The goal was to produce modularity in component tree branches' state in a really easy manner. This was achieved by using the `Context API` and `React Hooks`, providing modular state with minimal code patterns.
 
 ## Learn Conflux
 
@@ -68,7 +68,7 @@ export const App = () => {
  *
  * Reducers are pure functions that must take in some state, an action, and return state.
  *
- * Note that the first parameter of the reducer function, state, has a default value of inititalState,
+ * Note that the first parameter of the reducer function, state, has a default value of initialState,
  * the beginning state of our reducer. The second parameter, the action, is an object sent into
  * our reducer from our dispatch function which we will see in just a minute.
  *
@@ -76,7 +76,7 @@ export const App = () => {
  * example, we're taking in a new to-do item and setting it to state.
  */
 
-const toDoReducer = (state = intitialState, action) => {
+const toDoReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return {
