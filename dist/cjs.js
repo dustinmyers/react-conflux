@@ -1133,7 +1133,7 @@ var propTypes = createCommonjsModule(function (module) {
 
 var StateProvider = function StateProvider(_ref) {
   var reducer = _ref.reducer,
-      StateContext = _ref.StateContext,
+      stateContext = _ref.stateContext,
       children = _ref.children;
 
   // Error messages for the reducer object
@@ -1142,8 +1142,8 @@ var StateProvider = function StateProvider(_ref) {
   } // Error messages for the StateContext object
 
 
-  if (!StateContext) {
-    throw new Error('StateContext prop is undefined. Please check your createContext method and what you are passing into your StateProvider.');
+  if (!stateContext) {
+    throw new Error('stateContext prop is undefined. Please check your createContext method and what you are passing into your StateProvider.');
   }
 
   if (children === undefined || _typeof(children) !== 'object' || !Object.keys(children).length) {
@@ -1186,8 +1186,9 @@ var StateProvider = function StateProvider(_ref) {
   var value = React.useMemo(function () {
     return [state, dispatch];
   }, [state]);
+  var Provider = stateContext.Provider;
   /**
-   * The newly instantiated copy of StateContext.Provider is returned as a component from this function
+   * The newly instantiated copy of Provider is returned as a component from this function
    * to be wrapped around JSX in the application. The value returned from the useMemo hook (an array containing
    * state and dispatch) is passed into the Provider per the requirements for the Context API
    * in the documentation at: https://reactjs.org/docs/context.html
@@ -1196,14 +1197,14 @@ var StateProvider = function StateProvider(_ref) {
    * react-conflux's custom hook "useStateValue".
    */
 
-  return React__default.createElement(StateContext.Provider, {
+  return React__default.createElement(Provider, {
     value: value
   }, children);
 };
 
 StateProvider.propTypes = {
   reducer: propTypes.func.isRequired,
-  StateContext: propTypes.object.isRequired,
+  stateContext: propTypes.object.isRequired,
   // eslint-disable-line react/forbid-prop-types
   children: propTypes.oneOfType([propTypes.element, propTypes.array]).isRequired
 };
