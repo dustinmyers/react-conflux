@@ -3,14 +3,14 @@ import TestRenderer from 'react-test-renderer';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { useStateValue } from '../src';
 import { TestApp } from './helpers/components';
-import { TestContext, WrongContext } from './helpers/contexts';
+import { testContext, wrongContext } from './helpers/contexts';
 import { UPDATE_TEXT } from './helpers/constants';
 
 describe('useStateValue()', () => {
   describe('tests that useStateValue() will destructure state and dispatch', () => {
     it('should mount successfully and destructure state and dispatch without crashing', () => {
       const ChildComponent = () => {
-        const [{ text }, dispatch] = useStateValue(TestContext);
+        const [{ text }, dispatch] = useStateValue(testContext);
         return <p>{text}</p>;
       };
 
@@ -108,7 +108,7 @@ describe('useStateValue()', () => {
 
     it('should throw an error when the wrong context object is passed into it', () => {
       const ChildComponent = () => {
-        const [{ text }, dispatch] = useStateValue(WrongContext);
+        const [{ text }, dispatch] = useStateValue(wrongContext);
         return <p>{text}</p>;
       };
 

@@ -2,14 +2,14 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { StateProvider } from '../src';
-import { TestContext } from './helpers/contexts';
+import { testContext } from './helpers/contexts';
 import { testReducer } from './helpers/reducers';
 
 describe('<StateProvider />', () => {
   describe('tests that the component will mount successfully with all arguments', () => {
     it('should mount successfully without crashing', () => {
       const tree = TestRenderer.create(
-        <StateProvider reducer={testReducer} StateContext={TestContext}>
+        <StateProvider reducer={testReducer} stateContext={testContext}>
           <p>Testing</p>
         </StateProvider>
       );
@@ -34,7 +34,7 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider StateContext={TestContext}>
+          <StateProvider stateContext={testContext}>
             <p>Testing</p>
           </StateProvider>
         );
@@ -45,7 +45,7 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer={{}} StateContext={TestContext}>
+          <StateProvider reducer={{}} stateContext={testContext}>
             <p>Testing</p>
           </StateProvider>
         );
@@ -56,7 +56,7 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer="Dude" StateContext={TestContext}>
+          <StateProvider reducer="Dude" stateContext={testContext}>
             <p>Testing</p>
           </StateProvider>
         );
@@ -67,7 +67,7 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer="Dude" StateContext={TestContext}>
+          <StateProvider reducer="Dude" stateContext={testContext}>
             <p>Testing</p>
           </StateProvider>
         );
@@ -87,7 +87,7 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer={testReducer} StateContext={TestContext} />
+          <StateProvider reducer={testReducer} stateContext={testContext} />
         );
       }).toThrow(errorMessage);
     });
@@ -96,7 +96,7 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer={testReducer} StateContext={TestContext}>
+          <StateProvider reducer={testReducer} stateContext={testContext}>
             {'Marty, we have to go back!'}
           </StateProvider>
         );
@@ -107,7 +107,7 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer={testReducer} StateContext={TestContext}>
+          <StateProvider reducer={testReducer} stateContext={testContext}>
             {}
           </StateProvider>
         );

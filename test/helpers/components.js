@@ -1,11 +1,11 @@
 import React from 'react';
 import { StateProvider } from '../../src';
 import { testReducer } from './reducers';
-import { TestContext } from './contexts';
+import { testContext } from './contexts';
 
 export const TestApp = ({ children }) => {
   return (
-    <StateProvider reducer={testReducer} StateContext={TestContext}>
+    <StateProvider reducer={testReducer} stateContext={testContext}>
       <div>{children}</div>
     </StateProvider>
   );

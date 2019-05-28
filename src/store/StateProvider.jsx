@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
  * value as well as the children of the Context component.
  */
 
-const StateProvider = ({ reducer, StateContext, children }) => {
+const StateProvider = ({ reducer, stateContext, children }) => {
   // Error messages for the reducer object
   if (typeof reducer !== 'function') {
     throw new Error(
@@ -29,9 +29,9 @@ const StateProvider = ({ reducer, StateContext, children }) => {
   }
 
   // Error messages for the StateContext object
-  if (!StateContext) {
+  if (!stateContext) {
     throw new Error(
-      'StateContext prop is undefined. Please check your createContext method and what you are passing into your StateProvider.'
+      'stateContext prop is undefined. Please check your createContext method and what you are passing into your StateProvider.'
     );
   }
 
@@ -81,8 +81,9 @@ const StateProvider = ({ reducer, StateContext, children }) => {
     return [state, dispatch];
   }, [state]);
 
+  const { Provider } = stateContext;
   /**
-   * The newly instantiated copy of StateContext.Provider is returned as a component from this function
+   * The newly instantiated copy of Provider is returned as a component from this function
    * to be wrapped around JSX in the application. The value returned from the useMemo hook (an array containing
    * state and dispatch) is passed into the Provider per the requirements for the Context API
    * in the documentation at: https://reactjs.org/docs/context.html
@@ -91,14 +92,12 @@ const StateProvider = ({ reducer, StateContext, children }) => {
    * react-conflux's custom hook "useStateValue".
    */
 
-  return (
-    <StateContext.Provider value={value}>{children}</StateContext.Provider>
-  );
+  return <Provider value={value}>{children}</Provider>;
 };
 
 StateProvider.propTypes = {
   reducer: PropTypes.func.isRequired,
-  StateContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  stateContext: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired
 };
 

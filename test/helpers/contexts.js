@@ -1,4 +1,4 @@
 import { createContext } from 'react';
 
-export const TestContext = createContext();
-export const WrongContext = createContext();
+export const testContext = createContext();
+export const wrongContext = createContext();
