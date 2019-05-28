@@ -1,13 +1,15 @@
-import {
-  GET_DATA_START,
-  GET_DATA_SUCCESS,
-  GET_DATA_ERROR,
-  THROW_ERROR,
-  UNKNOWN
-} from './constants';
+import { UPDATE_TEXT } from './constants';
 
-export const testReducer = (state = { text: 'Testing' }, action) => {
-  switch (action.payload) {
+const initialState = { text: 'Testing' };
+
+export const testReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case UPDATE_TEXT:
+      console.log(action);
+      return {
+        ...state,
+        text: action.payload
+      };
     default:
       return state;
   }
