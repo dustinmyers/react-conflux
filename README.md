@@ -81,10 +81,10 @@ const toDoReducer = (state = intitialState, action) => {
     case 'ADD_TODO':
       return {
         ...state,
-        toDoItems: {
+        toDoItems: [
           ...state.toDoItems,
           action.payload
-        }
+        ]
       }
     default:
       return state;
