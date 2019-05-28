@@ -28,7 +28,7 @@ const StateProvider = ({ reducer, stateContext, children }) => {
     );
   }
 
-  // Error messages for the StateContext object
+  // Error messages for the stateContext object
   if (!stateContext) {
     throw new Error(
       'stateContext prop is undefined. Please check your createContext method and what you are passing into your StateProvider.'
@@ -71,7 +71,7 @@ const StateProvider = ({ reducer, stateContext, children }) => {
 
   /**
    * The useMemo hook returns state and dispatch while guarding against unnecessary rerendering of the component
-   * tree contained within this StateContext.Provider.
+   * tree contained within this stateContext.Provider.
    *
    * It will only update when the state object in value changes, rather than any other state/props outside of
    * these values.

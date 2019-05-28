@@ -2,14 +2,14 @@ import React from 'react';
 import { StateProvider } from 'react-conflux';
 import { counterReducer } from './store/reducers/counterReducer';
 import { titleReducer } from './store/reducers/titleReducer';
-import { CounterContext, TitleContext } from './store/contexts';
+import { counterContext, titleContext } from './store/contexts';
 
 import Counter from './components/Counter';
 
 const App = () => {
   return (
-    <StateProvider reducer={counterReducer} StateContext={CounterContext}>
-      <StateProvider reducer={titleReducer} StateContext={TitleContext}>
+    <StateProvider reducer={counterReducer} stateContext={CounterContext}>
+      <StateProvider reducer={titleReducer} stateContext={titleContext}>
         <Counter />
       </StateProvider>
     </StateProvider>

@@ -53,18 +53,15 @@ import { StateProvider, useStateValue } from 'react-conflux';
 
 export const App = () => {
   return (
-    <StateProvider
-      reducer={reducer}
-      StateContext={StateContext}
-    >
+    <StateProvider reducer={reducer} stateContext={stateContext}>
       <ChildrenComponents />
     </StateProvider>
-  )
-}
+  );
+};
 
 /**
  * The two parameters required by the StateProvider component are a reducer function and a
- * StateContext object.
+ * stateContext object.
  *
  * Reducers are pure functions that must take in some state, an action, and return state.
  *
@@ -81,11 +78,8 @@ const toDoReducer = (state = initialState, action) => {
     case 'ADD_TODO':
       return {
         ...state,
-        toDoItems: [
-          ...state.toDoItems,
-          action.payload
-        ]
-      }
+        toDoItems: [...state.toDoItems, action.payload]
+      };
     default:
       return state;
   }
@@ -99,23 +93,22 @@ const toDoReducer = (state = initialState, action) => {
  */
 
 const initialState = {
-  inputText: "",
+  inputText: '',
   listArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-  nameObject: { firstName: "Marty", lastName: "McFly" },
+  nameObject: { firstName: 'Marty', lastName: 'McFly' },
   toDoItems: [
-    { id: 1, name: "Meddle with the future" },
-    { id: 2, name: "Check out the past" }
+    { id: 1, name: 'Meddle with the future' },
+    { id: 2, name: 'Check out the past' }
   ]
-}
+};
 
 /**
- * The StateContext object is created in your application by importing createContext from react and
+ * The stateContext object is created in your application by importing createContext from react and
  * defining your state like the example below. This context object is passed into your State Provider
  * (and, later, your useStateValue hook).
  */
 
 const ExampleContext = createContext();
-
 
 /**
  * Every action object must have a type and payload; the type allows us to navigate the cases
@@ -125,7 +118,10 @@ const ExampleContext = createContext();
  * Here's an example of what an action object looks like.
  */
 
-const action = { type: 'ADD_TODO', payload: { id: 3, name: "Marty, we have to go back!" } }
+const action = {
+  type: 'ADD_TODO',
+  payload: { id: 3, name: 'Marty, we have to go back!' }
+};
 
 /**
  * The last step to using Conflux is to rig it up in your components within the component tree
@@ -143,8 +139,10 @@ const [state, dispatch] = useStateValue(ExampleContext);
 
 const { inputText } = state;
 
-dispatch({ type: 'ADD_TODO', payload: { id: 3, name: "Marty, we have to go back!" } });
-
+dispatch({
+  type: 'ADD_TODO',
+  payload: { id: 3, name: 'Marty, we have to go back!' }
+});
 ```
 
 ### Example Applications
@@ -153,7 +151,7 @@ We try, whenever possible, to give you a corresponding CodeSandbox for every sam
 
 - **Counter** [Source Code](https://github.com/dustinmyers/react-conflux/tree/master/examples/counter) | [CodeSandbox](https://codesandbox.io/s/is5dx)
 - **To-Do App** [CodeSandbox](https://codesandbox.io/s/todo-app-conflux-example-2v6b7)
-- **With Data Fetch** 
+- **With Data Fetch**
   - [TV Shows](https://codesandbox.io/s/reactconflux-data-fetch-example-r52e9)
   - [Random Animals](https://codesandbox.io/s/reactconflux-animals-example-58e3l)
 

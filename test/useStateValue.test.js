@@ -42,7 +42,7 @@ describe('useStateValue()', () => {
           </TestApp>
         );
       }).toThrow(
-        'The StateContext object is undefined in your useStateValue hook. You probably forgot to pass the StateContext object into your useStateValue hook.'
+        'The stateContext object is undefined in your useStateValue hook. You probably forgot to pass the stateContext object into your useStateValue hook.'
       );
     });
   });
