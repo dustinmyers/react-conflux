@@ -1,3 +1,4 @@
 import useStateValue from './useStateValue';
+import useInitialState from './useInitialState';
 
-export default useStateValue;
+export { useStateValue, useInitialState };

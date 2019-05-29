@@ -1114,18 +1114,57 @@
   });
 
   /**
+   * The makeInitialState function only runs once on application load from the Conflux library. This
+   * function returns initial state from the default case in the reducer function.
+   *
+   * @param {Function} reducer A reducer function that contains a switch statement and, ultimately,
+   * returns a state object.
+   *
+   * @returns {Object} Will return the intialState object from default case in the invoked reducer.
+   */
+  var useInitialState = function useInitialState(reducer) {
+    /**
+     * getRandomString is used to create a randomized alpha-numeric string to create the action type
+     * for the initial reducer call. It is then prepended by "@conflux" which is a reserved phrase
+     * for action types in Conflux.
+     */
+    var getRandomString = Math.random().toString(36).substring(7);
+    /**
+     * The reducer function is invoked and passed no first parameter and an object for the second
+     * parameter.
+     *
+     * Parameter one is undefined as the reducer function should have a default parameter
+     * of initialState inside the application.
+     *
+     * Parameter two is an object with a key-value pair for an initialState retrieval using the
+     * getRandomString variable above appended to "@conflux" in a template literal string as
+     * shown below.
+     */
+
+    return reducer(undefined, {
+      type: "@conflux".concat(getRandomString)
+    });
+  };
+
+  /**
+   * Initialized value for initialState. This will be changed on application load to initialState
+   * and thereafter only be updated when the reducer function is invoked successfully.
+   */
+
+  var initialState;
+  /**
    * Create a Context.Provider wrapper for children components wherever it is applied to the
    * component tree. This component can be called multiple times throughout the application.
    *
-   * @param {reducer} reducer A reducer function that contains a switch statement and, ultimately,
+   * @param {Function} reducer A reducer function that contains a switch statement and, ultimately,
    * returns a state object. The reducer can never be undefined or anything other than a type of
-   * function. They should return modified state if the action.type passed into them is defined
-   * or their initial state if the action.type passed into them is undefined.
+   * function. Reducers should return modified state if the action.type passed into them is defined
+   * or return the initialState if the action.type passed into them is undefined.
    *
-   * @param {stateContext} stateContext A Context object created from the createContext function
+   * @param {Object} stateContext A Context object created out of the createContext function
    * from React.
    *
-   * @param {children} children The descending compontent tree JSX is passed in and placed inside
+   * @param {JSX} children The descending component tree JSX is passed in and placed inside
    * the Context.Provider.
    *
    * @returns {JSX} Returns a JSX component for a Context.Provider setup and passes in the memoized
@@ -1151,25 +1190,22 @@
       throw new Error('StateProvider must contain children components. You probably forgot to wrap it around your components in your JSX.');
     }
     /**
-     * getRandomString is used to create a randomized alpha-numeric string to create the action type
-     * for the initial reducer call. This initial reducer call sets returns the initial state object
-     * from the reducer that will then be passed into useReducer.
+     * This initial reducer call sets returns the initial state object from the reducer that will
+     * then be passed into useReducer. The makeInitialState function returns
      *
-     * It will only update when state changes.
+     * After this intitialization of state, the initialState object will only update when state
+     * changes.
      */
 
 
-    var getRandomString = function getRandomString() {
-      return Math.random().toString(36).substring(7);
-    };
-
-    var initialState = reducer(undefined, {
-      type: "@conflux".concat(getRandomString())
-    });
+    if (!initialState) {
+      initialState = useInitialState(reducer);
+    }
     /**
      * Uses the useReducer hook to pass in a reducer and initialState. It returns
      * an array that can be destructured into state and a dispatch function.
      */
+
 
     var _useReducer = React.useReducer(reducer, initialState),
         _useReducer2 = _slicedToArray(_useReducer, 2),
