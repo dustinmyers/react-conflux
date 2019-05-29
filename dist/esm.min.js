@@ -1134,7 +1134,7 @@ var StateProvider = function StateProvider(_ref) {
   // Error messages for the reducer object
   if (typeof reducer !== 'function') {
     throw new Error('The reducer must be a function. You might have forgotten to pass your reducer into your StateProvider.');
-  } // Error messages for the StateContext object
+  } // Error messages for the stateContext object
 
 
   if (!stateContext) {
@@ -1171,7 +1171,7 @@ var StateProvider = function StateProvider(_ref) {
       dispatch = _useReducer2[1];
   /**
    * The useMemo hook returns state and dispatch while guarding against unnecessary rerendering of the component
-   * tree contained within this StateContext.Provider.
+   * tree contained within this stateContext.Provider.
    *
    * It will only update when the state object in value changes, rather than any other state/props outside of
    * these values.
@@ -1208,23 +1208,23 @@ StateProvider.propTypes = {
  * The useStateValue custom hook from Conflux provides a modular, predictable, and easy
  * way to desctructure state and dispatch from the Context API's Consumer whenever needed.
  *
- * @param {StateContext} StateContext An object previously created using React's Context
+ * @param {stateContext} stateContext An object previously created using React's Context
  * API that contains a Provider and Consumer.
  *
  * @returns {context} Returns a validated context array containing a state object and a
  * dispatch function for use inside of a component.
  */
 
-var useStateValue = function useStateValue(StateContext) {
+var useStateValue = function useStateValue(stateContext) {
   /**
-   * StateContext error messages for undefined and incorrect data types passed into
+   * stateContext error messages for undefined and incorrect data types passed into
    * useStateValue hook
    */
-  if (StateContext === undefined) {
-    throw new Error('The StateContext object is undefined in your useStateValue hook. You probably forgot to pass the StateContext object into your useStateValue hook.');
+  if (stateContext === undefined) {
+    throw new Error('The stateContext object is undefined in your useStateValue hook. You probably forgot to pass the stateContext object into your useStateValue hook.');
   }
 
-  if (!StateContext.Provider && !StateContext.Consumer) {
+  if (!stateContext.Provider && !stateContext.Consumer) {
     throw new Error('Incorrect argument passed to the useStateValue hook. You probably passed a variable other than your context object into it.');
   }
   /**
@@ -1234,9 +1234,9 @@ var useStateValue = function useStateValue(StateContext) {
    */
 
 
-  var context = useContext(StateContext);
+  var context = useContext(stateContext);
   /**
-   * context error message for if context returns undefined. This happens when the StateContext
+   * context error message for if context returns undefined. This happens when the stateContext
    * passed into the useStateValue hook is used in a component which is not a child of that
    * context's Provider.
    */

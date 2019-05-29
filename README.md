@@ -60,7 +60,7 @@ export const App = () => {
 
 /**
  * The two parameters required by the StateProvider component are a reducer function and a
- * StateContext object.
+ * stateContext object.
  *
  * Reducers are pure functions that must take in some state, an action, and return state.
  *
@@ -102,7 +102,7 @@ const initialState = {
 };
 
 /**
- * The StateContext object is created in your application by importing createContext from react and
+ * The stateContext object is created in your application by importing createContext from react and
  * defining your state like the example below. This context object is passed into your State Provider
  * (and, later, your useStateValue hook).
  */
