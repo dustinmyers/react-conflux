@@ -9,7 +9,6 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 - [Learn Conflux](#learn-conflux)
   - [A Brief Overview](#a-brief-overview)
   - [Example Applications](#example-applications)
-  - [Real-World Usage](#real-world-usage)
 - [Installation](#installation)
 - [Contributing and Getting Involved](#contributing-and-getting-involved)
 - [Logo](#logo)
@@ -23,7 +22,7 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 
 While most people use `Context` in React to pass a single global state up-and-down the entire application, it also has the ability to be surgically scoped to a specific component tree within an application's component architecture. As most large chunks of state are sometimes only needed inside of their assigned section of the application, modularity, maintainability, and performance can all be improved by segmenting state to specific limbs of the component tree.
 
-Conflux upgrades state management by combining the best facets of `Redux`, `Context`, and `React Hooks`. Developers can define state to a specific component, state tree, or the entire application. In fact, all three of these are possible at the same time through the use of multiple StateProviders. It then becomes a trivial matter to destructure out state for use in your application.
+Conflux upgrades state management by combining the best facets of `Redux`, `Context`, and `React Hooks`. Developers can define state to a specific component, state tree, or the entire application. In fact, all three of these are possible at the same time through the use of multiple StateProviders. It then becomes a trivial matter to destructure out state for use in your application's components.
 
 ## Origins
 
@@ -38,7 +37,7 @@ You create as many instances of `StateProvider` as you would like for modularize
 ```js
 /**
  * While intimidating at first, the process of implementing Conflux is actually really straightforward.
- * In order to use Conflux in our application, we must import StateProvider and the useStateValue hook.
+ * In order to use Conflux in our application, we must first import StateProvider and the useStateValue hook.
  */
 
 import { StateProvider, useStateValue } from 'react-conflux';
@@ -53,14 +52,11 @@ import { StateProvider, useStateValue } from 'react-conflux';
 
 export const App = () => {
   return (
-    <StateProvider
-      reducer={reducer}
-      StateContext={StateContext}
-    >
+    <StateProvider reducer={reducer} stateContext={exampleContext}>
       <ChildrenComponents />
     </StateProvider>
-  )
-}
+  );
+};
 
 /**
  * The two parameters required by the StateProvider component are a reducer function and a
@@ -81,11 +77,8 @@ const toDoReducer = (state = initialState, action) => {
     case 'ADD_TODO':
       return {
         ...state,
-        toDoItems: [
-          ...state.toDoItems,
-          action.payload
-        ]
-      }
+        toDoItems: [...state.toDoItems, action.payload]
+      };
     default:
       return state;
   }
@@ -99,14 +92,14 @@ const toDoReducer = (state = initialState, action) => {
  */
 
 const initialState = {
-  inputText: "",
+  inputText: '',
   listArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-  nameObject: { firstName: "Marty", lastName: "McFly" },
+  nameObject: { firstName: 'Marty', lastName: 'McFly' },
   toDoItems: [
-    { id: 1, name: "Meddle with the future" },
-    { id: 2, name: "Check out the past" }
+    { id: 1, name: 'Meddle with the future' },
+    { id: 2, name: 'Check out the past' }
   ]
-}
+};
 
 /**
  * The StateContext object is created in your application by importing createContext from react and
@@ -114,8 +107,7 @@ const initialState = {
  * (and, later, your useStateValue hook).
  */
 
-const ExampleContext = createContext();
-
+const exampleContext = createContext();
 
 /**
  * Every action object must have a type and payload; the type allows us to navigate the cases
@@ -125,7 +117,10 @@ const ExampleContext = createContext();
  * Here's an example of what an action object looks like.
  */
 
-const action = { type: 'ADD_TODO', payload: { id: 3, name: "Marty, we have to go back!" } }
+const action = {
+  type: 'ADD_TODO',
+  payload: { id: 3, name: 'Marty, we have to go back!' }
+};
 
 /**
  * The last step to using Conflux is to rig it up in your components within the component tree
@@ -143,8 +138,10 @@ const [state, dispatch] = useStateValue(ExampleContext);
 
 const { inputText } = state;
 
-dispatch({ type: 'ADD_TODO', payload: { id: 3, name: "Marty, we have to go back!" } });
-
+dispatch({
+  type: 'ADD_TODO',
+  payload: { id: 3, name: 'Marty, we have to go back!' }
+});
 ```
 
 ### Example Applications
@@ -153,11 +150,9 @@ We try, whenever possible, to give you a corresponding CodeSandbox for every sam
 
 - **Counter** [Source Code](https://github.com/dustinmyers/react-conflux/tree/master/examples/counter) | [CodeSandbox](https://codesandbox.io/s/is5dx)
 - **To-Do App** [CodeSandbox](https://codesandbox.io/s/todo-app-conflux-example-2v6b7)
-- **With Data Fetch** 
+- **With Data Fetch**
   - [TV Shows](https://codesandbox.io/s/reactconflux-data-fetch-example-r52e9)
   - [Random Animals](https://codesandbox.io/s/reactconflux-animals-example-58e3l)
-
-### Real-World Usage
 
 ## Installation
 
