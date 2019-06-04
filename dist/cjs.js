@@ -1113,7 +1113,7 @@ var propTypes = createCommonjsModule(function (module) {
 });
 
 /**
- * The makeInitialState function only runs once on application load from the Conflux library. This
+ * The useInitialState function only runs once on application load from the Conflux library. This
  * function returns initial state from the default case in the reducer function.
  *
  * @param {Function} reducer A reducer function that contains a switch statement and, ultimately,
@@ -1132,8 +1132,8 @@ var useInitialState = function useInitialState(reducer) {
    * The reducer function is invoked and passed no first parameter and an object for the second
    * parameter.
    *
-   * Parameter one is undefined as the reducer function should have a default parameter
-   * of initialState inside the application.
+   * Parameter one is undefined as the reducer function should have a default parameter of
+   * initialState inside the application.
    *
    * Parameter two is an object with a key-value pair for an initialState retrieval using the
    * getRandomString variable above appended to "@conflux" in a template literal string as
@@ -1249,7 +1249,7 @@ StateProvider.propTypes = {
  * The useStateValue custom hook from Conflux provides a modular, predictable, and easy
  * way to desctructure state and dispatch from the Context API's Consumer whenever needed.
  *
- * @param {stateContext} stateContext An object previously created using React's Context
+ * @param {Object} stateContext An object previously created using React's Context
  * API that contains a Provider and Consumer.
  *
  * @returns {context} Returns a validated context array containing a state object and a
