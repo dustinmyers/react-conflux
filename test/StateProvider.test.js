@@ -56,7 +56,7 @@ describe('<StateProvider />', () => {
       const renderer = new ShallowRenderer();
       expect(() => {
         return renderer.render(
-          <StateProvider reducer="Dude" stateContext={testContext}>
+          <StateProvider reducer={[]} stateContext={testContext}>
             <p>Testing</p>
           </StateProvider>
         );

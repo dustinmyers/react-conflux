@@ -4,7 +4,7 @@ import { useContext } from 'react';
  * The useStateValue custom hook from Conflux provides a modular, predictable, and easy
  * way to desctructure state and dispatch from the Context API's Consumer whenever needed.
  *
- * @param {stateContext} stateContext An object previously created using React's Context
+ * @param {Object} stateContext An object previously created using React's Context
  * API that contains a Provider and Consumer.
  *
  * @returns {context} Returns a validated context array containing a state object and a

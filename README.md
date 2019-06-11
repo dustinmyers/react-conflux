@@ -9,7 +9,6 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 - [Learn Conflux](#learn-conflux)
   - [A Brief Overview](#a-brief-overview)
   - [Example Applications](#example-applications)
-  - [Real-World Usage](#real-world-usage)
 - [Installation](#installation)
 - [Contributing and Getting Involved](#contributing-and-getting-involved)
 - [Logo](#logo)
@@ -23,7 +22,7 @@ Conflux is a modularized state management system utilizing the [Context API](htt
 
 While most people use `Context` in React to pass a single global state up-and-down the entire application, it also has the ability to be surgically scoped to a specific component tree within an application's component architecture. As most large chunks of state are sometimes only needed inside of their assigned section of the application, modularity, maintainability, and performance can all be improved by segmenting state to specific limbs of the component tree.
 
-Conflux upgrades state management by combining the best facets of `Redux`, `Context`, and `React Hooks`. Developers can define state to a specific component, state tree, or the entire application. In fact, all three of these are possible at the same time through the use of multiple StateProviders. It then becomes a trivial matter to destructure out state for use in your application.
+Conflux upgrades state management by combining the best facets of `Redux`, `Context`, and `React Hooks`. Developers can define state to a specific component, state tree, or the entire application. In fact, all three of these are possible at the same time through the use of multiple StateProviders. It then becomes a trivial matter to destructure out state for use in your application's components.
 
 ## Origins
 
@@ -38,7 +37,7 @@ You create as many instances of `StateProvider` as you would like for modularize
 ```js
 /**
  * While intimidating at first, the process of implementing Conflux is actually really straightforward.
- * In order to use Conflux in our application, we must import StateProvider and the useStateValue hook.
+ * In order to use Conflux in our application, we must first import StateProvider and the useStateValue hook.
  */
 
 import { StateProvider, useStateValue } from 'react-conflux';
@@ -53,7 +52,7 @@ import { StateProvider, useStateValue } from 'react-conflux';
 
 export const App = () => {
   return (
-    <StateProvider reducer={reducer} stateContext={stateContext}>
+    <StateProvider reducer={reducer} stateContext={exampleContext}>
       <ChildrenComponents />
     </StateProvider>
   );
@@ -63,7 +62,7 @@ export const App = () => {
  * The two parameters required by the StateProvider component are a reducer function and a
  * stateContext object.
  *
- * Reducers are pure functions that must take in some state, an action, and return state.
+ * Reducers are pure functions that must take in some state and an action while returning state.
  *
  * Note that the first parameter of the reducer function, state, has a default value of initialState,
  * the beginning state of our reducer. The second parameter, the action, is an object sent into
@@ -86,8 +85,8 @@ const toDoReducer = (state = initialState, action) => {
 };
 
 /**
- * The initialState object (which we are about to pass into our reducer in a minute) contains
- * the starting state necessary for the given StateProvider it's being passed into.
+ * The initialState object contains the starting state necessary for the given StateProvider it's
+ * being passed into.
  *
  * An example of this for demonstration purposes is below.
  */
@@ -103,17 +102,17 @@ const initialState = {
 };
 
 /**
- * The stateContext object is created in your application by importing createContext from react and
- * defining your state like the example below. This context object is passed into your State Provider
+ * The stateContext object is created in your application by importing createContext from React and
+ * defining your state like the example below. This context object is passed into the StateProvider
  * (and, later, your useStateValue hook).
  */
 
-const ExampleContext = createContext();
+const exampleContext = createContext();
 
 /**
  * Every action object must have a type and payload; the type allows us to navigate the cases
- * in our switch statement (such as in the example reducer above), and the payload is the state
- * which we will update in our reducer.
+ * in our reducer switch statements, and the payload is the state which we will update in our
+ * reducer.
  *
  * Here's an example of what an action object looks like.
  */
@@ -128,11 +127,11 @@ const action = {
  * housed in the relevant StateProvider.
  *
  * You can destructure out your state and dispatch by passing the context object created above into
- * the useStateValue hook exported from Conflux as shown in the example below. You can then further
- * destructure out your individual state values to assign throughout your component.
+ * the useStateValue hook which is imported from Conflux You can then further destructure out your
+ * individual state values to assign throughout your component.
  *
- * Additionally, the dispatch function can be invoked with an action inside of it to send state to
- * our reducer (and ultimately placed into our StateProvider's state).
+ * Additionally, the dispatch function can be invoked with an action object inside of it to send
+ * state to our reducer (and ultimately to be placed into our StateProvider's state).
  */
 
 const [state, dispatch] = useStateValue(ExampleContext);
@@ -154,8 +153,6 @@ We try, whenever possible, to give you a corresponding CodeSandbox for every sam
 - **With Data Fetch**
   - [TV Shows](https://codesandbox.io/s/reactconflux-data-fetch-example-r52e9)
   - [Random Animals](https://codesandbox.io/s/reactconflux-animals-example-58e3l)
-
-### Real-World Usage
 
 ## Installation
 
