@@ -1,0 +1,22 @@
+.navbar__container {
+  background: $aztec;
+  height: 80px;
+  padding: 0 5%;
+
+  .navbar__main {
+    height: 80px;
+    margin: 0 auto;
+    max-width: 1500px;
+    width: 100%;
+    @include flex(row, space-between, center);
+
+    .conflux-logo {
+      width: 150px;
+    }
+
+    .navbar__links {
+      width: calc(100% - 150px);
+      @include border();
+    }
+  }
+}

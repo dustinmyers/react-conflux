@@ -1,7 +1,10 @@
 // ======================== Variables & Mixins
-@import "./libs/variables";
-@import "./libs/mixins";
+@import './libs/variables';
+@import './libs/mixins';
 
 // ======================== General Styles
-@import "./libs/reset";
-@import "./libs/globals";
+@import './libs/reset';
+@import './libs/globals';
+
+// ======================== Component Styles
+@import '../components/Header/_header';

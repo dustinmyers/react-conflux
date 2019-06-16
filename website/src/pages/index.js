@@ -5,7 +5,9 @@ import Layout from '../components/Layout/Layout';
 const index = () => {
   return (
     <Layout>
-      <h1>Duuuuude</h1>
+      <div className="home__container">
+        <h2>Welcome</h2>
+      </div>
     </Layout>
   );
 };
