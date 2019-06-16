@@ -11,12 +11,34 @@
     @include flex(row, space-between, center);
 
     .conflux-logo {
-      width: 150px;
+      width: 160px;
     }
 
     .navbar__links {
       width: calc(100% - 150px);
-      @include flex(row, flex-end);
+      @include flex(row, flex-end, center);
+
+      .search-bar {
+        background: $searchbar-bg url(../static/search-icon.svg) no-repeat
+          scroll 1px 1px;
+        background-size: 8%;
+        background-position: 14px 10px;
+        border: 1px solid $searchbar-border;
+        height: 40px;
+        margin-right: 1.5%;
+        padding-left: 3%;
+        transition: 0.2s;
+        width: 250px;
+        caret-color: $searchbar-caret;
+
+        &:focus {
+          background-color: $searchbar-focus-bg;
+          color: white;
+          outline: none;
+          padding-left: 15px;
+          width: 320px;
+        }
+      }
 
       .link {
         display: block;
@@ -25,7 +47,8 @@
         line-height: 80px;
         width: 120px;
         color: $white;
-        font-size: 1.8rem;
+        transition: 0.35s;
+        transition-property: background;
 
         &:hover {
           background: $navbar-bg-hover;

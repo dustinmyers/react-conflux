@@ -11,6 +11,12 @@
   flex-wrap: $wrap;
 }
 
+@mixin border-radius($size: 5px) {
+  border-radius: $size;
+  -moz-border-radius: $size;
+  -webkit-border-radius: $size;
+}
+
 @mixin border() {
   border: 1px solid red;
 }

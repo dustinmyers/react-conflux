@@ -10,10 +10,8 @@ const Layout = ({ children }) => {
   return (
     <StateProvider reducer={globalReducer} stateContext={globalContext}>
       <div className="container">
-        <div>
-          <Header />
-          {children}
-        </div>
+        <Header />
+        <div>{children}</div>
       </div>
     </StateProvider>
   );
