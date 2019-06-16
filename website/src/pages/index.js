@@ -6,7 +6,7 @@ const index = () => {
   return (
     <Layout>
       <div className="home__container">
-        <h2>Welcome</h2>
+        <h2>This is the home page.</h2>
       </div>
     </Layout>
   );

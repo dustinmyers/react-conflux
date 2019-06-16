@@ -16,7 +16,21 @@
 
     .navbar__links {
       width: calc(100% - 150px);
-      @include border();
+      @include flex(row, flex-end);
+
+      .link {
+        display: block;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        width: 120px;
+        color: $white;
+        font-size: 1.8rem;
+
+        &:hover {
+          background: $navbar-bg-hover;
+        }
+      }
     }
   }
 }
