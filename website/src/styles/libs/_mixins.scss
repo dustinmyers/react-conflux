@@ -1,0 +1,10 @@
+@mixin flex($direction, $justify, $align, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+}
+
+@mixin text-border() {
+  border: 1px solid red;
+}

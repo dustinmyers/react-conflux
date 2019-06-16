@@ -1,0 +1,54 @@
+{
+  "name": "react-conflux-documentation",
+  "private": true,
+  "description": "The documentation website for the React-Conflux library, a modular and elegant implementation of the Flux pattern.",
+  "version": "0.1.0",
+  "author": "Dustin Myers and Nathan thomas",
+  "dependencies": {
+    "gatsby": "^2.9.4",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-source-filesystem": "^2.0.39",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-conflux": "0.0.2-beta.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "env-cmd": "^9.0.3",
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "conflux",
+    "react-conflux",
+    "react",
+    "redux",
+    "flux",
+    "context",
+    "context api",
+    "hooks",
+    "react hooks",
+    "immutable",
+    "elm",
+    "functional",
+    "hot",
+    "reducer",
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "env-cmd -f ./.env.development gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
