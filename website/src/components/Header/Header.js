@@ -5,7 +5,7 @@ import { useStateValue } from 'react-conflux';
 import { globalContext } from '../../store/contexts';
 import { HANDLE_CHANGE } from '../../store/reducers/globalReducer';
 
-import confluxLogo from '../../static/conflux-logo-light.png';
+import confluxLogo from '../../images/conflux-logo-light.png';
 import NavLink from './NavLink';
 
 const Header = () => {
@@ -14,7 +14,7 @@ const Header = () => {
   const handleSearch = e => {
     dispatch({
       type: HANDLE_CHANGE,
-      payload: { name: e.target.name, value: e.target.value },
+      payload: { name: e.target.name, value: e.target.value }
     });
   };
   return (
@@ -47,7 +47,7 @@ const Header = () => {
 
 Header.propTypes = {
   confluxLogo: PropTypes.string,
-  searchText: PropTypes.string,
+  searchText: PropTypes.string
 };
 
 export default Header;

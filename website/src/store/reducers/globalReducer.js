@@ -18,6 +18,13 @@ const initialState = {
       route: '/contact',
     },
   ],
+  sidebarContent: [
+    {
+      id: 1,
+      text: 'Introduction',
+      route: '/documentation/introduction',
+    },
+  ],
   searchText: '',
 };
 
