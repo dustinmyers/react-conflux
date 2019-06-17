@@ -1,0 +1,21 @@
+.home__container {
+  width: 100;
+
+  .home__header {
+    background-image: linear-gradient(to left, $mercury, $alabaster);
+    border-bottom: 1px solid $mercury;
+    height: calc(80vh - 80px);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    .header__conflux-logo {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: -420px;
+      opacity: 0.18;
+      right: 0;
+      width: 800px;
+    }
+  }
+}
