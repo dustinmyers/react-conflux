@@ -2,20 +2,38 @@
   width: 100;
 
   .home__header {
-    background-image: linear-gradient(to left, $mercury, $alabaster);
-    border-bottom: 1px solid $mercury;
-    height: calc(80vh - 80px);
+    background-image: linear-gradient(to left, $mercury 30%, $alabaster);
+    height: calc(100vh - 80px);
     position: relative;
     overflow: hidden;
     width: 100%;
+    @include flex(column, center, center);
+
+    .home__header__content {
+      z-index: 10;
+      @include flex(column, center, center);
+
+      .home__header__title {
+        margin-bottom: 30px;
+      }
+
+      .home__header__text {
+        margin-bottom: 30px;
+      }
+
+      .home__header__links {
+        margin-bottom: 30px;
+      }
+    }
 
     .header__conflux-logo {
       position: absolute;
       bottom: 0;
       margin-bottom: -420px;
-      opacity: 0.18;
+      opacity: 0.15;
       right: 0;
       width: 800px;
+      z-index: 1;
     }
   }
 }

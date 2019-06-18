@@ -18,6 +18,7 @@ h3,
 h4,
 h5,
 h6 {
+  color: $text-color;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
@@ -25,7 +26,17 @@ h6 {
   font-size: 2.25rem;
   line-height: 1.1;
 }
+h1 {
+  font-size: 5rem;
+}
+p {
+  color: $text-color;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1.8rem;
+}
 a {
+  color: $mine-shaft;
   font-size: 1.8rem;
   text-decoration: none;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
