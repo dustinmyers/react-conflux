@@ -1141,12 +1141,6 @@ var useInitialState = function useInitialState(reducer) {
 };
 
 /**
- * Initialized value for initialState. This will be changed on application load to initialState
- * and thereafter only be updated when the reducer function is invoked successfully.
- */
-
-var initialState;
-/**
  * Create a Context.Provider wrapper for children components wherever it is applied to the
  * component tree. This component can be called multiple times throughout the application.
  *
@@ -1185,21 +1179,15 @@ var StateProvider = function StateProvider(_ref) {
   }
   /**
    * This initial reducer call sets returns the initial state object from the reducer that will
-   * then be passed into useReducer. The makeInitialState function returns
-   *
-   * After this intitialization of state, the initialState object will only update when state
-   * changes.
+   * then be passed into useReducer.
    */
 
 
-  if (!initialState) {
-    initialState = useInitialState(reducer);
-  }
+  var initialState = useInitialState(reducer);
   /**
    * Uses the useReducer hook to pass in a reducer and initialState. It returns
    * an array that can be destructured into state and a dispatch function.
    */
-
 
   var _useReducer = useReducer(reducer, initialState),
       _useReducer2 = _slicedToArray(_useReducer, 2),

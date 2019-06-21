@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import useInitialState from '../hooks/useInitialState';
 
 /**
- * Initialized value for initialState. This will be changed on application load to initialState
- * and thereafter only be updated when the reducer function is invoked successfully.
- */
-
-let initialState;
-
-/**
  * Create a Context.Provider wrapper for children components wherever it is applied to the
  * component tree. This component can be called multiple times throughout the application.
  *
@@ -55,15 +48,10 @@ const StateProvider = ({ reducer, stateContext, children }) => {
 
   /**
    * This initial reducer call sets returns the initial state object from the reducer that will
-   * then be passed into useReducer. The makeInitialState function returns
-   *
-   * After this intitialization of state, the initialState object will only update when state
-   * changes.
+   * then be passed into useReducer.
    */
 
-  if (!initialState) {
-    initialState = useInitialState(reducer);
-  }
+  const initialState = useInitialState(reducer);
 
   /**
    * Uses the useReducer hook to pass in a reducer and initialState. It returns
