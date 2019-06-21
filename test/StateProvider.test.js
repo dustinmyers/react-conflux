@@ -5,6 +5,13 @@ import { StateProvider } from '../src';
 import { testContext } from './helpers/contexts';
 import { testReducer } from './helpers/reducers';
 
+/**
+ * In order for this test suite to run, you must npm link this repository to a React dependency
+ * elsewhere.
+ *
+ * EX: npm link ../test-app/node_modules/react
+ */
+
 describe('<StateProvider />', () => {
   describe('tests that the component will mount successfully with all arguments', () => {
     it('should mount successfully without crashing', () => {

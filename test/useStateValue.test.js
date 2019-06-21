@@ -3,7 +3,13 @@ import TestRenderer from 'react-test-renderer';
 import { useStateValue } from '../src';
 import { TestApp } from './helpers/components';
 import { testContext, wrongContext } from './helpers/contexts';
-import { UPDATE_TEXT } from './helpers/constants';
+
+/**
+ * In order for this test suite to run, you must npm link this repository to a React dependency
+ * elsewhere.
+ *
+ * EX: npm link ../test-app/node_modules/react
+ */
 
 describe('.useStateValue()', () => {
   describe('tests that .useStateValue() will destructure state and dispatch', () => {
