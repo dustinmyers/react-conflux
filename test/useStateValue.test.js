@@ -6,8 +6,8 @@ import { TestApp } from './helpers/components';
 import { testContext, wrongContext } from './helpers/contexts';
 import { UPDATE_TEXT } from './helpers/constants';
 
-describe('useStateValue()', () => {
-  describe('tests that useStateValue() will destructure state and dispatch', () => {
+describe('.useStateValue()', () => {
+  describe('tests that .useStateValue() will destructure state and dispatch', () => {
     it('should mount successfully and destructure state and dispatch without crashing', () => {
       const ChildComponent = () => {
         const [{ text }, dispatch] = useStateValue(testContext);
@@ -24,7 +24,7 @@ describe('useStateValue()', () => {
     });
   });
 
-  describe('tests that not passing context to useStateValue() throws an error', () => {
+  describe('tests that not passing context to .useStateValue() throws an error', () => {
     beforeEach(() => {
       console.error = jest.fn();
     });
@@ -101,7 +101,7 @@ describe('useStateValue()', () => {
     });
   });
 
-  describe('tests that the wrong context passed into useStateValue() throws an error', () => {
+  describe('tests that the wrong context passed into .useStateValue() throws an error', () => {
     beforeEach(() => {
       console.error = jest.fn();
     });
