@@ -3,29 +3,44 @@ export const HANDLE_CHANGE = 'HANDLE_CHANGE';
 const initialState = {
   navLinks: [
     {
-      id: 1,
       text: 'Docs',
-      route: '/documentation',
+      route: '/documentation'
     },
     {
-      id: 2,
       text: 'About',
-      route: '/about',
+      route: '/about'
     },
     {
-      id: 3,
       text: 'Contact',
-      route: '/contact',
-    },
+      route: '/contact'
+    }
   ],
   sidebarContent: [
     {
-      id: 1,
       text: 'Introduction',
       route: '/documentation/introduction',
+      subContent: [
+        {
+          text: 'Motivation',
+          route: '/documentation/introduction/motivation'
+        },
+        {
+          text: 'Installation',
+          route: '/documentation/introduction/installation'
+        },
+        {
+          text: 'Main Concepts',
+          route: '/documentation/introduction/main-concepts'
+        }
+      ]
     },
+    {
+      text: 'Basic Tutorial',
+      route: 'documentation/introduction',
+      subContent: ['Implementation']
+    }
   ],
-  searchText: '',
+  searchText: ''
 };
 
 export const globalReducer = (state = initialState, action) => {
@@ -33,7 +48,7 @@ export const globalReducer = (state = initialState, action) => {
     case HANDLE_CHANGE:
       return {
         ...state,
-        [action.payload.name]: action.payload.value,
+        [action.payload.name]: action.payload.value
       };
     default:
       return state;

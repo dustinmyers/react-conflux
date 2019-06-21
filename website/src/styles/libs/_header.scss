@@ -1,7 +1,10 @@
 .navbar__container {
   background: $aztec;
   height: 80px;
-  padding: 0 5%;
+  padding: 0 3%;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
 
   .navbar__main {
     height: 80px;
@@ -28,8 +31,9 @@
         color: $searchbar-color;
         height: 40px;
         margin-right: 1.5%;
+        padding: 0 3% 0 1.5%;
         transition: 0.35s;
-        width: 250px;
+        width: 220px;
         caret-color: $searchbar-caret;
 
         &:focus {

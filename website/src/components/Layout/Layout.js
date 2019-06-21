@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
       <StateProvider reducer={globalReducer} stateContext={globalContext}>
         <div className="container">
           <Header />
-          <div>{children}</div>
+          {children}
         </div>
       </StateProvider>
     </>

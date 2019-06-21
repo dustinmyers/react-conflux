@@ -1,8 +1,9 @@
 .home__container {
-  width: 100;
+  padding-top: 80px;
+  width: 100%;
 
   .home__header {
-    background-image: linear-gradient(to left, $mercury 30%, $alabaster);
+    background-image: linear-gradient(to left, $mercury, $alabaster);
     height: calc(100vh - 80px);
     position: relative;
     overflow: hidden;
@@ -23,6 +24,32 @@
 
       .home__header__links {
         margin-bottom: 30px;
+        width: 500px;
+        @include flex(row, space-around);
+
+        .doc__link {
+          background: $home-btn-bg;
+          color: $home-btn-color;
+          height: 50px;
+          margin: 10px 0;
+          transition: 0.15s;
+          width: 200px;
+          @include border-radius(50px);
+          @include border(1px, solid, $home-btn-border);
+          @include flex(row, center, center);
+
+          &:hover {
+            margin: 7px 0 13px;
+          }
+        }
+
+        .github__link {
+          height: 50px;
+          margin: 10px 0;
+          transition: 0.15s;
+          width: 200px;
+          @include flex(row, center, center);
+        }
       }
     }
 
@@ -30,7 +57,7 @@
       position: absolute;
       bottom: 0;
       margin-bottom: -420px;
-      opacity: 0.15;
+      opacity: 0.11;
       right: 0;
       width: 800px;
       z-index: 1;

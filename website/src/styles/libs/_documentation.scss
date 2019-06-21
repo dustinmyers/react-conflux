@@ -1,0 +1,18 @@
+.docs__container {
+  padding: 80px 3% 0;
+  width: 100%;
+
+  .docs__container-main {
+    margin: 0 auto;
+    max-width: 1500px;
+    @include flex();
+
+    div {
+      width: calc(100% - 450px);
+
+      p {
+        margin: 50px 0;
+      }
+    }
+  }
+}

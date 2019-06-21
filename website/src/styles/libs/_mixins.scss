@@ -17,6 +17,6 @@
   -webkit-border-radius: $size;
 }
 
-@mixin border() {
-  border: 1px solid red;
+@mixin border($size: 1px, $style: solid, $color: red) {
+  border: $size $style $color;
 }

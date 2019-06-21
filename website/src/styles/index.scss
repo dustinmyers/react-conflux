@@ -7,6 +7,9 @@
 @import './libs/_globals';
 
 // ======================== Component Styles
-@import '../components/Header/_header';
-@import '../components/Sidebar/_sidebar';
+@import './libs/_header';
+@import './libs/_sidebar';
 @import './libs/_home';
+@import './libs/_documentation';
+@import './libs/_contact';
+@import './libs/_about';

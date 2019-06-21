@@ -1,0 +1,12 @@
+.sidebar__container {
+  padding-top: 80px;
+  position: fixed;
+  background: $sidebar-bg;
+  border-left: 1px solid $sidebar-border;
+  top: 0;
+  right: 0;
+  width: 450px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
