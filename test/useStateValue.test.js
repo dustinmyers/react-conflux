@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import ShallowRenderer from 'react-test-renderer/shallow';
 import { useStateValue } from '../src';
 import { TestApp } from './helpers/components';
 import { testContext, wrongContext } from './helpers/contexts';
