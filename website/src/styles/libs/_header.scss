@@ -32,7 +32,7 @@
         height: 40px;
         margin-right: 1.5%;
         padding: 0 3% 0 1.5%;
-        transition: 0.35s;
+        transition: 0.25s ease-in-out;
         width: 220px;
         caret-color: $searchbar-caret;
 
@@ -52,7 +52,7 @@
         line-height: 80px;
         width: 120px;
         color: $white;
-        transition: 0.35s;
+        transition: 0.25s ease-in-out;
         transition-property: background;
 
         &:hover {
