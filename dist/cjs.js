@@ -21,6 +21,40 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(source);
+
+    if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    });
+  }
+
+  return target;
+}
+
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
 }
@@ -1146,6 +1180,15 @@ var useInitialState = function useInitialState(reducer) {
 };
 
 /**
+ * The stateObjects provides persistent storage of state for as many initialState objects as
+ * needed throughout the application.
+ *
+ * Every instantiation of StateProvider will add a new initialState object to stateObjects with
+ * the key of the reducer name and the value of the state.
+ */
+
+var stateObjects = {};
+/**
  * Create a Context.Provider wrapper for children components wherever it is applied to the
  * component tree. This component can be called multiple times throughout the application.
  *
@@ -1188,13 +1231,16 @@ var StateProvider = function StateProvider(_ref) {
    */
 
 
-  var initialState = useInitialState(reducer);
+  if (stateObjects[reducer] === undefined) {
+    stateObjects[reducer] = _objectSpread({}, useInitialState(reducer));
+  }
   /**
    * Uses the useReducer hook to pass in a reducer and initialState. It returns
    * an array that can be destructured into state and a dispatch function.
    */
 
-  var _useReducer = React.useReducer(reducer, initialState),
+
+  var _useReducer = React.useReducer(reducer, stateObjects[reducer]),
       _useReducer2 = _slicedToArray(_useReducer, 2),
       state = _useReducer2[0],
       dispatch = _useReducer2[1];

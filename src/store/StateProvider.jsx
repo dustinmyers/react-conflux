@@ -3,6 +3,16 @@ import PropTypes from 'prop-types';
 import useInitialState from '../hooks/useInitialState';
 
 /**
+ * The stateObjects provides persistent storage of state for as many initialState objects as
+ * needed throughout the application.
+ *
+ * Every instantiation of StateProvider will add a new initialState object to stateObjects with
+ * the key of the reducer name and the value of the state.
+ */
+
+const stateObjects = {};
+
+/**
  * Create a Context.Provider wrapper for children components wherever it is applied to the
  * component tree. This component can be called multiple times throughout the application.
  *
@@ -51,14 +61,16 @@ const StateProvider = ({ reducer, stateContext, children }) => {
    * then be passed into useReducer.
    */
 
-  const initialState = useInitialState(reducer);
+  if (stateObjects[reducer] === undefined) {
+    stateObjects[reducer] = { ...useInitialState(reducer) };
+  }
 
   /**
    * Uses the useReducer hook to pass in a reducer and initialState. It returns
    * an array that can be destructured into state and a dispatch function.
    */
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, stateObjects[reducer]);
 
   /**
    * The useMemo hook returns state and dispatch while guarding against unnecessary rerendering of the component
