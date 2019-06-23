@@ -5,6 +5,13 @@ import { StateProvider } from '../src';
 import { testContext } from './helpers/contexts';
 import { testReducer } from './helpers/reducers';
 
+/**
+ * In order for this test suite to run, you must npm link this repository to a React dependency
+ * elsewhere.
+ *
+ * EX: npm link ../test-app/node_modules/react
+ */
+
 describe('<StateProvider />', () => {
   describe('tests that the component will mount successfully with all arguments', () => {
     it('should mount successfully without crashing', () => {
@@ -19,8 +26,8 @@ describe('<StateProvider />', () => {
 
   describe('tests the reducer argument passed into the <StateProvider /> component', () => {
     /**
-     * Rids console.error in tests from PropTypes where we're specficially trying to test if
-     * custom error messages occur when not passing specific props.
+     * Rids console.error in tests from PropTypes where we're specifically trying to test if
+     * custom error messages occur when passing certain props.
      *  */
 
     beforeEach(() => {
