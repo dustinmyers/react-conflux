@@ -59,10 +59,12 @@ const StateProvider = ({ reducer, stateContext, children }) => {
   /**
    * This initial reducer call sets returns the initial state object from the reducer that will
    * then be passed into useReducer.
+   *
+   *
    */
 
-  if (stateObjects[reducer] === undefined) {
-    stateObjects[reducer] = { ...useInitialState(reducer) };
+  if (stateObjects[reducer.name] === undefined) {
+    stateObjects[reducer.name] = useInitialState(reducer);
   }
 
   /**
@@ -70,7 +72,7 @@ const StateProvider = ({ reducer, stateContext, children }) => {
    * an array that can be destructured into state and a dispatch function.
    */
 
-  const [state, dispatch] = useReducer(reducer, stateObjects[reducer]);
+  const [state, dispatch] = useReducer(reducer, stateObjects[reducer.name]);
 
   /**
    * The useMemo hook returns state and dispatch while guarding against unnecessary rerendering of the component

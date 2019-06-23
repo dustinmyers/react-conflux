@@ -38,40 +38,6 @@ function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
 }
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-    var ownKeys = Object.keys(source);
-
-    if (typeof Object.getOwnPropertySymbols === 'function') {
-      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-      }));
-    }
-
-    ownKeys.forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    });
-  }
-
-  return target;
-}
-
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
 function _typeof(obj) {
@@ -1223,11 +1189,13 @@ var StateProvider = function StateProvider(_ref) {
   /**
    * This initial reducer call sets returns the initial state object from the reducer that will
    * then be passed into useReducer.
+   *
+   *
    */
 
 
-  if (stateObjects[reducer] === undefined) {
-    stateObjects[reducer] = _objectSpread({}, useInitialState(reducer));
+  if (stateObjects[reducer.name] === undefined) {
+    stateObjects[reducer.name] = useInitialState(reducer);
   }
   /**
    * Uses the useReducer hook to pass in a reducer and initialState. It returns
@@ -1235,7 +1203,7 @@ var StateProvider = function StateProvider(_ref) {
    */
 
 
-  var _useReducer = useReducer(reducer, stateObjects[reducer]),
+  var _useReducer = useReducer(reducer, stateObjects[reducer.name]),
       _useReducer2 = _slicedToArray(_useReducer, 2),
       state = _useReducer2[0],
       dispatch = _useReducer2[1];
