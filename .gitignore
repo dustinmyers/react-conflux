@@ -12,3 +12,4 @@ yarn-error.log*
 /.changelog
 .npm/
 .env
+notes.md
