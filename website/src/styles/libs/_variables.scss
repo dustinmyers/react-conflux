@@ -27,3 +27,8 @@ $docs-btn-bg: $aztec;
 $docs-btn-color: $white;
 $github-btn-border: $aztec;
 $github-btn-color: $aztec;
+
+// ====================================== Media Queries
+$desktop: '(max-width: 1000px)';
+$tablet: '(max-width: 800px)';
+$mobile: '(max-width: 500px)';

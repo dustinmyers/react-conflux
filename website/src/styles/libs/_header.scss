@@ -42,6 +42,14 @@
           outline: none;
           padding-left: 15px;
           width: 320px;
+
+          @media #{$tablet} {
+            width: 170px;
+          }
+        }
+
+        @media #{$tablet} {
+          width: 140px;
         }
       }
 
@@ -57,6 +65,14 @@
 
         &:hover {
           background: $navbar-bg-hover;
+        }
+
+        @media #{$tablet} {
+          width: 80px;
+
+          &:nth-child(odd) {
+            display: none;
+          }
         }
       }
     }

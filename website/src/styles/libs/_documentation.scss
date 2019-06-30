@@ -10,6 +10,14 @@
     div {
       width: calc(100% - 450px);
 
+      @media #{$desktop} {
+        width: calc(100% - 42%);
+      }
+
+      @media #{$mobile} {
+        width: 100%;
+      }
+
       p {
         margin: 50px 0;
       }
