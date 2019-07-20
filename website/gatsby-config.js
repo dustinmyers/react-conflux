@@ -37,6 +37,14 @@ module.exports = {
         crossOrigin: `use-credentials`
       }
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Montserrat', 'Lato']
+        }
+      }
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`
   ]

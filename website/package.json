@@ -12,6 +12,7 @@
     "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-typography": "^2.2.13",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.39",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",

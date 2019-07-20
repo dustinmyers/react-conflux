@@ -12,7 +12,7 @@ const index = () => {
           <div className="home__header__content">
             <h1 className="home__header__title">Conflux</h1>
             <p className="home__header__text">
-              A modular, elegant, and easy-to-use state management library
+              Modular. Elegant. Easy.
             </p>
             <div className="home__header__links">
               <Link className="doc__link" to="/documentation">
@@ -27,7 +27,11 @@ const index = () => {
             </div>
           </div>
           <div className="header__conflux-logo">
-            <img src={confluxAtomLogo} alt="Conflux atom logo in white" />
+            <img
+              src={confluxAtomLogo}
+              draggable="false"
+              alt="Conflux atom logo in white"
+            />
           </div>
         </section>
       </div>

@@ -3,7 +3,8 @@
   width: 100%;
 
   .home__header {
-    background-image: linear-gradient(to left, $mercury, $alabaster);
+    background: $mercury;
+    background-image: linear-gradient(to left, $alabaster, white);
     height: calc(100vh - 80px);
     position: relative;
     overflow: hidden;
@@ -21,50 +22,13 @@
       .home__header__text {
         margin-bottom: 30px;
       }
-
-      // .home__header__links {
-      //   margin-bottom: 30px;
-      //   width: 500px;
-      //   @include flex(row, space-around);
-
-      // .doc__link {
-      //   background: $docs-btn-bg;
-      //   color: $docs-btn-color;
-      //   height: 50px;
-      //   margin: 10px 0;
-      //   transition: 0.15s;
-      //   width: 200px;
-      //   @include border-radius(50px);
-      //   @include border(1px, solid, $docs-btn-border);
-      //   @include flex(row, center, center);
-
-      //   &:hover {
-      //     margin: 7px 0 13px;
-      //   }
-      // }
-
-      // .github__link {
-      //   color: $github-btn-color;
-      //   height: 50px;
-      //   margin: 10px 0;
-      //   transition: 0.15s;
-      //   width: 200px;
-      //   @include border-radius(50px);
-      //   @include border(1px, solid, $github-btn-border);
-      //   @include flex(row, center, center);
-
-      //   &:hover {
-      //     margin: 7px 0 13px;
-      //   }
-      // }
-      // }
     }
 
     .header__conflux-logo {
       position: absolute;
       bottom: 0;
       margin: 0 3% -420px 0;
-      opacity: 0.2;
+      opacity: 0.9;
       right: 0;
       width: 800px;
       z-index: 1;
