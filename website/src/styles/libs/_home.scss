@@ -16,9 +16,8 @@
       z-index: 10;
       @include flex(column, flex-start, center);
 
-      .home__header__title {
-        font-size: 6rem;
-        margin-bottom: 30px;
+      .home__logo {
+        width: 400px;
       }
 
       .home__header__text {
@@ -30,11 +29,12 @@
         @include flex(row, center);
 
         .home__link {
-          background-image: linear-gradient(
-            to top,
-            $home-btn-bg1 30%,
-            $home-btn-bg2
-          );
+          // background-image: linear-gradient(
+          //   to top,
+          //   $home-btn-bg1 30%,
+          //   $home-btn-bg2
+          // );
+          background: $home-btn-bg1;
           color: $home-btn-color;
           border-radius: 50px;
           display: inline-block;
@@ -48,10 +48,17 @@
           box-shadow: 0px 6px 45px -15px rgba(0, 0, 0, 0.27);
 
           &:hover {
+            opacity: 0.94;
+            // background-image: linear-gradient(
+            //   to left,
+            //   $home-btn-hover-bg,
+            //   $home-btn-hover-bg
+            // );
+            background: $home-btn-hover-bg;
             transform: translateY(-3px);
-            -webkit-box-shadow: 0px 6px 45px -15px rgba(0, 0, 0, 0.61);
-            -moz-box-shadow: 0px 6px 45px -15px rgba(0, 0, 0, 0.61);
-            box-shadow: 0px 6px 45px -15px rgba(0, 0, 0, 0.61);
+            -webkit-box-shadow: 0px 6px 45px -15px rgba(0, 0, 0, 0.65);
+            -moz-box-shadow: 0px 6px 45px -15px rgba(0, 0, 0, 0.65);
+            box-shadow: 0px 6px 45px -15px rgba(0, 0, 0, 0.65);
           }
         }
       }

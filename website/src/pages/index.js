@@ -3,14 +3,17 @@ import { Link } from 'gatsby';
 
 import Layout from '../components/Layout/Layout';
 import confluxAtomLogo from '../images/conflux-logo-atom-white.png';
+import confluxDarkLogo from '../images/conflux-logo-dark.png';
 
 const index = () => {
   return (
     <Layout>
-      <div className="home__container">
+      <main className="home__container">
         <section className="home__header">
           <div className="home__header__content">
-            <h1 className="home__header__title">Conflux</h1>
+            <div className="home__logo">
+              <img src={confluxDarkLogo} alt="Conflux logo" />
+            </div>
             <p className="home__header__text">
               A modular and elegant state management system.
             </p>
@@ -34,7 +37,7 @@ const index = () => {
             />
           </div>
         </section>
-      </div>
+      </main>
     </Layout>
   );
 };
