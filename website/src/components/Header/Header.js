@@ -36,7 +36,12 @@ const Header = () => {
           />
           {state.navLinks.map(link => {
             return (
-              <NavLink key={link.id} text={link.text} route={link.route} />
+              <NavLink
+                key={link.text}
+                link={link}
+                text={link.text}
+                route={link.route}
+              />
             );
           })}
         </nav>

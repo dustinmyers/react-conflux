@@ -5,7 +5,7 @@ $aztec: #162524;
 $boulder: #757575;
 $cape-cod: #3b4645;
 $mercury: #e2e2e2;
-$mine-shaft: #2c2c2c;
+$mine-shaft: #333333;
 $spring-green: #06ffa5;
 $white: #ffffff;
 
@@ -22,11 +22,9 @@ $searchbar-caret: $white;
 $text-color: $mine-shaft;
 $sidebar-bg: $alabaster;
 $sidebar-border: $mercury;
-$docs-btn-border: $aztec;
-$docs-btn-bg: $aztec;
-$docs-btn-color: $white;
-$github-btn-border: $aztec;
-$github-btn-color: $aztec;
+$home-btn-bg1: $aztec;
+$home-btn-bg2: $cape-cod;
+$home-btn-color: $white;
 
 // ====================================== Media Queries
 $desktop: '(max-width: 1000px)';

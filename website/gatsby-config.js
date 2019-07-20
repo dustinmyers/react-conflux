@@ -38,11 +38,13 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        google: {
-          families: ['Montserrat', 'Lato']
-        }
+        fonts: [
+          `Lato\:400,700,900`,
+          `Montserrat\:400` // you can also specify font weights and styles
+        ],
+        display: 'swap'
       }
     },
     `gatsby-plugin-offline`,

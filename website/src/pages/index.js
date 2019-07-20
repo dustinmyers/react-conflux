@@ -12,17 +12,17 @@ const index = () => {
           <div className="home__header__content">
             <h1 className="home__header__title">Conflux</h1>
             <p className="home__header__text">
-              Modular. Elegant. Easy.
+              A modular and elegant state management system.
             </p>
             <div className="home__header__links">
-              <Link className="doc__link" to="/documentation">
+              <Link className="home__link doc__link" to="/documentation">
                 Get Started
               </Link>
               <a
-                className="github__link"
+                className="home__link github__link"
                 href="https://github.com/dustinmyers/react-conflux"
               >
-                GitHub >
+                GitHub
               </a>
             </div>
           </div>
