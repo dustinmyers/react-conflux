@@ -1,4 +1,3 @@
 import useStateValue from './useStateValue';
-import useInitialState from './useInitialState';
 
-export { useStateValue, useInitialState };
+export { useStateValue }; // eslint-disable-line import/prefer-default-export
