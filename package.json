@@ -56,9 +56,6 @@
     "test": "jest --watch --verbose",
     "lint": "npx eslint --fix ./src/*"
   },
-  "jest": {
-    "testRegex": "(/test/.*\\.test\\.js)$"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dustinmyers/react-conflux.git"

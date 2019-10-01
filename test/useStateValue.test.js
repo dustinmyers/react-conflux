@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import ShallowRenderer from 'react-test-renderer/shallow';
 import { useStateValue } from '../src';
 import { TestApp } from './helpers/components';
 import { testContext, wrongContext } from './helpers/contexts';
-import { UPDATE_TEXT } from './helpers/constants';
 
-describe('useStateValue()', () => {
-  describe('tests that useStateValue() will destructure state and dispatch', () => {
+/**
+ * In order for this test suite to run, you must npm link this repository to a React dependency
+ * elsewhere.
+ *
+ * EX: npm link ../test-app/node_modules/react
+ */
+
+describe('.useStateValue()', () => {
+  describe('tests that .useStateValue() will destructure state and dispatch', () => {
     it('should mount successfully and destructure state and dispatch without crashing', () => {
       const ChildComponent = () => {
         const [{ text }, dispatch] = useStateValue(testContext);
@@ -24,7 +29,7 @@ describe('useStateValue()', () => {
     });
   });
 
-  describe('tests that not passing context to useStateValue() throws an error', () => {
+  describe('tests that not passing context to .useStateValue() throws an error', () => {
     beforeEach(() => {
       console.error = jest.fn();
     });
@@ -101,7 +106,7 @@ describe('useStateValue()', () => {
     });
   });
 
-  describe('tests that the wrong context passed into useStateValue() throws an error', () => {
+  describe('tests that the wrong context passed into .useStateValue() throws an error', () => {
     beforeEach(() => {
       console.error = jest.fn();
     });
