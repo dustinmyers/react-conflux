@@ -1,6 +1,5 @@
 import React, { useReducer, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import useInitialState from '../hooks/useInitialState';
 
 /**
  * The stateObjects provides persistent storage of state for as many initialState objects as
@@ -64,7 +63,25 @@ const StateProvider = ({ reducer, stateContext, children }) => {
    */
 
   if (stateObjects[reducer.name] === undefined) {
-    stateObjects[reducer.name] = useInitialState(reducer);
+    const getRandomString = Math.random()
+      .toString(36)
+      .substring(7);
+
+    /**
+     * The reducer function is invoked and passed no first parameter and an object for the second
+     * parameter.
+     *
+     * Parameter one is undefined as the reducer function should have a default parameter of
+     * initialState inside the application.
+     *
+     * Parameter two is an object with a key-value pair for an initialState retrieval using the
+     * getRandomString variable above appended to "@conflux" in a template literal string as
+     * shown below.
+     */
+
+    stateObjects[reducer.name] = reducer(undefined, {
+      type: `@conflux-${getRandomString}`
+    });
   }
 
   /**
