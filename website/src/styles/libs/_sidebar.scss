@@ -23,7 +23,7 @@
     padding-left: 50px;
 
     .sidebar__link {
-      margin: 0 0 35px;
+      margin: 0 0 45px;
 
       a {
         display: flex;
@@ -35,18 +35,18 @@
 
         img {
           width: 15px;
-          margin-left: 5px;
+          margin-left: 6px;
         }
       }
     }
 
     .sidebar__sub-links {
-      margin-top: 20px;
+      margin-top: 25px;
       padding-left: 8%;
       display: none;
 
       .sub-link {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         transition: opacity 0.3s;
 
         &:hover {
