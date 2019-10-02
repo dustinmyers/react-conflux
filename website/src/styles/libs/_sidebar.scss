@@ -3,6 +3,8 @@
   position: fixed;
   background: $sidebar-bg;
   border-left: 1px solid $sidebar-border;
+  display: flex;
+  justify-content: flex-start;
   top: 0;
   right: 0;
   width: 40%;
@@ -13,5 +15,52 @@
 
   @media #{$mobile} {
     display: none;
+  }
+
+  .sidebar__content {
+    width: 70%;
+    margin-top: 50px;
+    padding-left: 50px;
+
+    .sidebar__link {
+      margin: 0 0 35px;
+
+      a {
+        display: flex;
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        img {
+          width: 15px;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .sidebar__sub-links {
+      margin-top: 20px;
+      padding-left: 8%;
+      display: none;
+
+      .sub-link {
+        margin-bottom: 20px;
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        p {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .sub-links--open {
+      display: block;
+    }
   }
 }
