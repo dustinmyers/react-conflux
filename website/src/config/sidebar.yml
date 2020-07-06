@@ -1,0 +1,16 @@
+# Sidebar navigation
+
+- label: 'What is Conflux?'
+  link: '/'
+- label: 'Getting started'
+  link: '/getting-started'
+- label: API
+  items:
+    - label: 'Creating docs'
+      link: '/usage/creating-docs'
+- label: Testing
+  link: '/testing'
+- label: About
+  link: '/about'
+- label: 'GitHub'
+  link: 'https://github.com/dustinmyers/react-conflux'
