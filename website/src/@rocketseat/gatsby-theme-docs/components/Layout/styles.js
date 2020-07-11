@@ -33,7 +33,7 @@ export const Children = styled.div`
     max-width: 100%;
   }
 
-  ${({ hasTitle }) => !hasTitle && 'padding-top: 40px'};
+  ${({ hasTitle }) => !hasTitle && 'padding-top: 30px'};
 `;
 
 export const Wrapper = styled.div`
