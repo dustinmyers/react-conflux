@@ -4,3 +4,4 @@ dist/**
 test/**
 .vscode/**
 rollup.config.js
+website/

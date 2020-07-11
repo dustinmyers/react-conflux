@@ -11,6 +11,6 @@ yarn-debug.log*
 yarn-error.log*
 /.changelog
 .npm/
-/website
 .env
 notes.md
+design-files/

@@ -2,59 +2,142 @@
 title: 'Getting started'
 ---
 
-The best way yo start is by using our starter:
+The best way to get started is to install `React-Conflux` with either `yarn` or `npm`:
+
+<br />
 
 ```bash
-gatsby new rocket-docs https://github.com/rocketseat/gatsby-starter-rocket-docs
+yarn add react-conflux
 ```
-
-But, if you prefer, you can install and configure manually.
 
 ```bash
-# Using Yarn:
-yarn add @rocketseat/gatsby-theme-docs
-
-# Using NPM:
-npm i @rocketseat/gatsby-theme-docs
+npm install react-conflux
 ```
 
-## Theme Options
+<br />
 
-| Key        | Default | Required | Description                                                                                                                    |
-| ---------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| basePath   | /       | No       | Root url for all docs                                                                                                          |
-| configPath | config  | No       | Location of config files                                                                                                       |
-| docsPath   | docs    | No       | The site description for SEO and social (FB, Twitter) tags                                                                     |
-| githubUrl  | -       | No       | The complete URL of your repository. For example: `https://github/rocketseat/gatsby-themes`                                    |
-| baseDir    | -       | No       | If your Gatsby site does not live in the root of your project directory/git repo, pass the subdirectory name here (ex: `docs`) |
+While intimidating at first, the process of implementing Conflux is actually really straightforward. Once you have `React-Conflux` installed, you must first import StateProvider and the useStateValue hook:
 
-## Example usage
+<br />
 
-```js title=gatsby-config.js
-module.exports = {
-  siteMetadata: {
-    siteTitle: `@rocketseat/gatsby-theme-docs`,
-    defaultTitle: `@rocketseat/gatsby-theme-docs`,
-    siteTitleShort: `gatsby-theme-docs`,
-    siteDescription: `Out of the box Gatsby Theme for creating documentation websites easily and quickly`,
-    siteUrl: `https://rocketdocs.netlify.com`,
-    siteAuthor: `@rocketseat`,
-    siteImage: `/banner.png`,
-    siteLanguage: `en`,
-    themeColor: `#7159c1`,
-  },
-  plugins: [
-    {
-      resolve: `@rocketseat/gatsby-theme-docs`,
-      options: {
-        docsPath: `src/docs`,
-        basePath: `/`,
-      },
-    },
-  ],
+```javascript
+import { StateProvider, useStateValue } from 'react-conflux';
+```
+
+<br />
+
+The next step to using Conflux in our application is placing the StateProvider component in our
+application. The following example demonstrates how you might go about wrapping the State Provider around
+a part of your component tree:
+
+<br />
+
+```javascript
+import { StateProvider, useStateValue } from 'react-conflux';
+import { reducer, exampleContext } from '../reducer';
+
+const App = () => {
+  return (
+    <StateProvider reducer={reducer} stateContext={exampleContext}>
+      <ChildrenComponents />
+    </StateProvider>
+  );
+};
+
+export default App;
+```
+
+<br />
+
+As seen above, the two parameters required by the `StateProvider` component are a `reducer` function and a `stateContext` object.
+
+Reducers are pure functions that must take in some state and an action while returning state. Note that the first parameter of the reducer function, state, has a default value of initialState, the beginning state of our reducer. The second parameter, the action, is an object sent into our reducer from our dispatch function which we will see in just a minute.
+
+Here is an example of a reducer and its corresponding switch statement; in this example, we're taking in a new to-do item and setting it to state:
+
+<br />
+
+```javascript
+const toDoReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return {
+        ...state,
+        toDoItems: [...state.toDoItems, action.payload]
+      };
+    case: "COMPLETE_TODO":
+      const id = action.payload;
+      return {
+        ...state,
+        toDoItems: state.toDoItems.map((toDo) => todo.id === id ? { ...toDo, complete: true } : todo)
+      }
+    default:
+      return state;
+  }
 };
 ```
 
-Once you have installed the dependencies you will need to create the [navigation](/usage/navigation) and [documentation](/usage/creating-docs) file.
+<br />
 
-After that, you are ready 🚀
+The initialState object contains the starting state necessary for the given StateProvider it's
+being passed into.
+
+An example of this (that might be given for the `toDoReducer` above) is given for demonstration purposes is below:
+
+<br />
+
+```javascript
+const initialState = {
+  toDoItems: [
+    { id: 1, content: 'Buy groceries', complete: false },
+    { id: 2, content: 'Call home', complete: false },
+    { id: 3, content: 'Go for a run', complete: true }
+  ]
+};
+```
+
+<br />
+
+The stateContext object is created in your application by importing createContext from React and defining your state like the example below. This context object is passed into the StateProvider (and, later, your useStateValue hook).
+
+<br />
+
+```javascript
+const exampleContext = createContext();
+```
+
+<br />
+
+Every action object must have a type and payload; the type allows us to navigate the cases in our reducer switch statements, and the payload is the state which we will update in our reducer.
+
+Here's an example of what an action object looks like.
+
+<br />
+
+```javascript
+const action = {
+  type: 'ADD_TODO',
+  payload: { id: 3, content: 'Marty, we have to go back!' }
+};
+```
+
+<br />
+
+The last step to using Conflux is to rig it up in your components within the component tree housed in the relevant StateProvider.
+
+You can destructure out your state and dispatch by passing the context object created above into the useStateValue hook which is imported from Conflux You can then further destructure out your individual state values to assign throughout your component.
+
+Additionally, the dispatch function can be invoked with an action object inside of it to send state to our reducer (and ultimately to be placed into our StateProvider's state).
+
+<br />
+
+```javascript
+const [state, dispatch] = useStateValue(ExampleContext);
+
+const { inputText } = state;
+
+dispatch({
+  type: 'ADD_TODO',
+  payload: { id: 3, content: 'Marty, we have to go back!' }
+});
+```
