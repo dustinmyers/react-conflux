@@ -1,6 +1,6 @@
 export default {
   colors: {
-    primary: '#06FFA5',
+    primary: '#00F59B',
     background: '#fff',
     sidebar: {
       background: '#ffffff',

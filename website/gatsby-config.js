@@ -10,7 +10,7 @@ module.exports = {
     siteLanguage: `en`,
     themeColor: `#06FFA5`,
     basePath: `/`,
-    footer: 'Made with 💚'
+    footer: 'Made with ☕️'
   },
   plugins: [
     {
