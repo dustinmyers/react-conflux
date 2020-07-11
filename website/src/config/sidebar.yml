@@ -4,10 +4,17 @@
   link: '/'
 - label: 'Getting started'
   link: '/getting-started'
-- label: API
+- label: Documentation
+  color: #2c2c2c
   items:
-    - label: 'Creating docs'
-      link: '/usage/creating-docs'
+    - label: 'StateProvider'
+      link: '/api/stateprovider'
+    - label: 'useInitialState Hook'
+      link: '/api/useinitialstate'
+    - label: 'Reducers'
+      link: '/api/reducers'
+    - label: 'Context Object'
+      link: '/api/context-object'
 - label: Testing
   link: '/testing'
 - label: About

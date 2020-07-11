@@ -10,7 +10,7 @@ module.exports = {
     siteLanguage: `en`,
     themeColor: `#06FFA5`,
     basePath: `/`,
-    footer: `Made with ❤️`
+    footer: 'Made with 💚'
   },
   plugins: [
     {
@@ -18,8 +18,8 @@ module.exports = {
       options: {
         configPath: `src/config`,
         docsPath: `src/docs`,
-        githubUrl: `https://github.com/rocketseat/gatsby-themes`,
-        baseDir: `examples/gatsby-theme-docs`
+        githubUrl: `https://github.com/dustinmyers/react-conflux`,
+        baseDir: `website/`
       }
     },
     {
@@ -43,7 +43,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://rocketdocs.netlify.com`
+        siteUrl: `https://github.com/dustinmyers/react-conflux`
       }
     },
     `gatsby-plugin-offline`
