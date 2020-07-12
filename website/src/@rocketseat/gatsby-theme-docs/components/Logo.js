@@ -11,7 +11,7 @@ const Logo = () => {
 };
 
 const Styles = styled.div`
-  width: 70%;
+  width: 80%;
   height: auto;
 
   img {

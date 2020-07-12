@@ -5,18 +5,17 @@
 - label: 'Getting started'
   link: '/getting-started'
 - label: Documentation
-  color: #2c2c2c
   items:
     - label: 'StateProvider'
       link: '/api/stateprovider'
-    - label: 'useInitialState Hook'
-      link: '/api/useinitialstate'
+    - label: 'useStateValue'
+      link: '/api/useStateValue'
     - label: 'Reducers'
-      link: '/api/reducers'
+      link: '/patterns/reducers'
     - label: 'Context Object'
-      link: '/api/context-object'
-- label: Testing
-  link: '/testing'
+      link: '/patterns/context-object'
+    - label: Testing
+      link: '/patterns/testing'
 - label: About
   link: '/about'
 - label: 'GitHub'
