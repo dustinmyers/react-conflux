@@ -33,7 +33,7 @@ export const Children = styled.div`
     max-width: 100%;
   }
 
-  ${({ hasTitle }) => !hasTitle && 'padding-top: 30px'};
+  ${({ hasTitle }) => !hasTitle && 'padding-top: 32px'};
 `;
 
 export const Wrapper = styled.div`
@@ -51,7 +51,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  padding: 30px 0 0 40px;
+  padding: 32px 0 0 40px;
 
   @media (max-width: 780px) {
     padding: 24px 0 0 24px;

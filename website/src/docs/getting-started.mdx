@@ -2,6 +2,8 @@
 title: Getting Started
 ---
 
+## Installation
+
 The best way to get started is to install `React-Conflux` with either `yarn` or `npm`:
 
 <br />
@@ -16,6 +18,8 @@ npm install react-conflux
 
 <br />
 
+## Import Statements
+
 While intimidating at first, the process of implementing Conflux is actually really straightforward. Once you have `React-Conflux` installed, you must first import StateProvider and the useStateValue hook:
 
 <br />
@@ -25,6 +29,8 @@ import { StateProvider, useStateValue } from 'react-conflux';
 ```
 
 <br />
+
+## StateProvider
 
 The next step to using Conflux in our application is placing the StateProvider component in our
 application. The following example demonstrates how you might go about wrapping the State Provider around
@@ -48,6 +54,8 @@ export default App;
 ```
 
 <br />
+
+## Reducers
 
 As seen above, the two parameters required by the `StateProvider` component are a `reducer` function and a `stateContext` object.
 
@@ -79,6 +87,8 @@ const toDoReducer = (state = initialState, action) => {
 
 <br />
 
+## Initial State
+
 The initialState object contains the starting state necessary for the given StateProvider it's
 being passed into.
 
@@ -98,6 +108,8 @@ const initialState = {
 
 <br />
 
+## Context Object
+
 The stateContext object is created in your application by importing createContext from React and defining your state like the example below. This context object is passed into the StateProvider (and, later, your useStateValue hook).
 
 <br />
@@ -107,6 +119,8 @@ const exampleContext = createContext();
 ```
 
 <br />
+
+## Action Object
 
 Every action object must have a type and payload; the type allows us to navigate the cases in our reducer switch statements, and the payload is the state which we will update in our reducer.
 
@@ -122,6 +136,8 @@ const action = {
 ```
 
 <br />
+
+## Component Use
 
 The last step to using Conflux is to rig it up in your components within the component tree housed in the relevant StateProvider.
 
@@ -141,3 +157,7 @@ dispatch({
   payload: { id: 3, content: 'Marty, we have to go back!' }
 });
 ```
+
+<br />
+
+This quick overview of the basic components of `React-Conflux` provide a preliminary understanding of the package. If you want to learn more, feel free to read on in our dedicated pages.
