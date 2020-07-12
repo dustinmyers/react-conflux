@@ -7,7 +7,7 @@ export default {
       link: '#999',
       heading: '#aaa',
       linkActive: '#13131A',
-      itemActive: '#F8f8f8',
+      itemActive: '#F8F8F8',
       footer: '#A8A8B3'
     }
   }

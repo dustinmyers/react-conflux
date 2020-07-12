@@ -18,9 +18,9 @@ npm install react-conflux
 
 <br />
 
-## Import Statements
+## Import Statement
 
-While intimidating at first, the process of implementing Conflux is actually really straightforward. Once you have `React-Conflux` installed, you must first import StateProvider and the useStateValue hook:
+While intimidating at first, the process of implementing Conflux is actually really straightforward. Once you have `React-Conflux` installed, you must first import the `StateProvider` component and the `useStateValue` hook:
 
 <br />
 
@@ -32,8 +32,8 @@ import { StateProvider, useStateValue } from 'react-conflux';
 
 ## StateProvider
 
-The next step to using Conflux in our application is placing the StateProvider component in our
-application. The following example demonstrates how you might go about wrapping the State Provider around
+The next step to using `React-Conflux` in our application is placing the `StateProvider` component in our
+application. The following example demonstrates how you might go about wrapping the `StateProvider` around
 a part of your component tree:
 
 <br />
@@ -59,7 +59,7 @@ export default App;
 
 As seen above, the two parameters required by the `StateProvider` component are a `reducer` function and a `stateContext` object.
 
-Reducers are pure functions that must take in some state and an action while returning state. Note that the first parameter of the reducer function, state, has a default value of initialState, the beginning state of our reducer. The second parameter, the action, is an object sent into our reducer from our dispatch function which we will see in just a minute.
+Reducers are pure functions that must take in some state and an action while returning state. Note that the first parameter of the reducer function, state, has a default value of `initialState`, the beginning state of our reducer. The second parameter, the `action`, is an object sent into our reducer from our dispatch function which we will see in just a minute.
 
 Here is an example of a reducer and its corresponding switch statement; in this example, we're taking in a new to-do item and setting it to state:
 
@@ -89,7 +89,7 @@ const toDoReducer = (state = initialState, action) => {
 
 ## Initial State
 
-The initialState object contains the starting state necessary for the given StateProvider it's
+The `initialState` object contains the starting state necessary for the given `StateProvider` component it's
 being passed into.
 
 An example of this (that might be given for the `toDoReducer` above) is given for demonstration purposes is below:
@@ -110,7 +110,7 @@ const initialState = {
 
 ## Context Object
 
-The stateContext object is created in your application by importing createContext from React and defining your state like the example below. This context object is passed into the StateProvider (and, later, your useStateValue hook).
+The state context object is created in your application by importing `createContext` from `React` and defining your state like the example below. This context object is passed into the `StateProvider` (and, later, your `useStateValue` hook).
 
 <br />
 
@@ -122,9 +122,9 @@ const exampleContext = createContext();
 
 ## Action Object
 
-Every action object must have a type and payload; the type allows us to navigate the cases in our reducer switch statements, and the payload is the state which we will update in our reducer.
+Every `action` object must have a type and payload; the type allows us to navigate the cases in our reducer switch statements, and the payload is the state which we will update in our reducer.
 
-Here's an example of what an action object looks like.
+Here's an example of what an `action` object looks like.
 
 <br />
 
