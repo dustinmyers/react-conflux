@@ -1,0 +1,22 @@
+# Sidebar navigation
+
+- label: 'What is Conflux?'
+  link: '/'
+- label: 'Getting started'
+  link: '/getting-started'
+- label: Documentation
+  items:
+    - label: 'StateProvider'
+      link: '/api/stateprovider'
+    - label: 'useStateValue'
+      link: '/api/useStateValue'
+    - label: 'Reducers'
+      link: '/patterns/reducers'
+    - label: 'Context Object'
+      link: '/patterns/context-object'
+    - label: Testing
+      link: '/patterns/testing'
+- label: About
+  link: '/about'
+- label: 'GitHub'
+  link: 'https://github.com/dustinmyers/react-conflux'

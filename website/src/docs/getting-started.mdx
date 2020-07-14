@@ -1,0 +1,163 @@
+---
+title: Getting Started
+---
+
+## Installation
+
+The best way to get started is to install `React-Conflux` with either `yarn` or `npm`:
+
+<br />
+
+```bash
+yarn add react-conflux
+```
+
+```bash
+npm install react-conflux
+```
+
+<br />
+
+## Import Statement
+
+While intimidating at first, the process of implementing Conflux is actually really straightforward. Once you have `React-Conflux` installed, you must first import the `StateProvider` component and the `useStateValue` hook:
+
+<br />
+
+```jsx
+import { StateProvider, useStateValue } from 'react-conflux';
+```
+
+<br />
+
+## StateProvider
+
+The next step to using `React-Conflux` in our application is placing the `StateProvider` component in our
+application. The following example demonstrates how you might go about wrapping the `StateProvider` around
+a part of your component tree:
+
+<br />
+
+```jsx
+import { StateProvider, useStateValue } from 'react-conflux';
+import { exampleReducer, exampleContext } from '../exampleReducer';
+
+const App = () => {
+  return (
+    <StateProvider reducer={exampleReducer} stateContext={exampleContext}>
+      <ChildrenComponents />
+    </StateProvider>
+  );
+};
+
+export default App;
+```
+
+<br />
+
+## Reducers
+
+As seen above, the two parameters required by the `StateProvider` component are a `reducer` function and a `stateContext` object.
+
+Reducers are pure functions that must take in some state and an action while returning state. Note that the first parameter of the reducer function, state, has a default value of `initialState`, the beginning state of our reducer. The second parameter, the `action`, is an object sent into our reducer from our dispatch function which we will see in just a minute.
+
+Here is an example of a reducer and its corresponding switch statement; in this example, we're taking in a new to-do item and setting it to state:
+
+<br />
+
+```jsx
+const toDoReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return {
+        ...state,
+        toDoItems: [...state.toDoItems, action.payload]
+      };
+    case: "COMPLETE_TODO":
+      const id = action.payload;
+      return {
+        ...state,
+        toDoItems: state.toDoItems.map((toDo) => todo.id === id ? { ...toDo, complete: true } : todo)
+      }
+    default:
+      return state;
+  }
+};
+```
+
+<br />
+
+## Initial State
+
+The `initialState` object contains the starting state necessary for the given `StateProvider` component it's
+being passed into.
+
+An example of this (that might be given for the `toDoReducer` above) is given for demonstration purposes is below:
+
+<br />
+
+```jsx
+const initialState = {
+  toDoItems: [
+    { id: 1, content: 'Buy groceries', complete: false },
+    { id: 2, content: 'Call home', complete: false },
+    { id: 3, content: 'Go for a run', complete: true }
+  ]
+};
+```
+
+<br />
+
+## Context Object
+
+The state context object is created in your application by importing `createContext` from `React` and defining your state like the example below. This context object is passed into the `StateProvider` (and, later, your `useStateValue` hook).
+
+<br />
+
+```jsx
+const exampleContext = createContext();
+```
+
+<br />
+
+## Action Object
+
+Every `action` object must have a type and payload; the type allows us to navigate the cases in our reducer switch statements, and the payload is the state which we will update in our reducer.
+
+Here's an example of what an `action` object looks like.
+
+<br />
+
+```jsx
+const action = {
+  type: 'ADD_TODO',
+  payload: { id: 3, content: 'Marty, we have to go back!' }
+};
+```
+
+<br />
+
+## Component Use
+
+The last step to using Conflux is to rig it up in your components within the component tree housed in the relevant StateProvider.
+
+You can destructure out your state and dispatch by passing the context object created above into the useStateValue hook which is imported from Conflux You can then further destructure out your individual state values to assign throughout your component.
+
+Additionally, the dispatch function can be invoked with an action object inside of it to send state to our reducer (and ultimately to be placed into our StateProvider's state).
+
+<br />
+
+```jsx
+const [state, dispatch] = useStateValue(ExampleContext);
+
+const { inputText } = state;
+
+dispatch({
+  type: 'ADD_TODO',
+  payload: { id: 3, content: 'Marty, we have to go back!' }
+});
+```
+
+<br />
+
+This quick overview of the basic components of `React-Conflux` provide a preliminary understanding of the package. If you want to learn more, feel free to read on in our dedicated pages.
