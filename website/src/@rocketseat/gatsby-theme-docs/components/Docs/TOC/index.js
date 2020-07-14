@@ -8,7 +8,7 @@ export default function TableOfContents({ headings }) {
     return (
       <Container>
         <nav>
-          <h2>Page Table of Contents</h2>
+          <h2>Table of Contents</h2>
           <ul>
             {headings
               .filter(heading => heading.depth === 2)

@@ -24,7 +24,7 @@ While intimidating at first, the process of implementing Conflux is actually rea
 
 <br />
 
-```jsx lineNumbers=true
+```jsx
 import { StateProvider, useStateValue } from 'react-conflux';
 ```
 
@@ -38,7 +38,7 @@ a part of your component tree:
 
 <br />
 
-```jsx lineNumbers=true
+```jsx
 import { StateProvider, useStateValue } from 'react-conflux';
 import { exampleReducer, exampleContext } from '../exampleReducer';
 
@@ -65,7 +65,7 @@ Here is an example of a reducer and its corresponding switch statement; in this 
 
 <br />
 
-```jsx lineNumbers=true
+```jsx
 const toDoReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -96,7 +96,7 @@ An example of this (that might be given for the `toDoReducer` above) is given fo
 
 <br />
 
-```jsx lineNumbers=true
+```jsx
 const initialState = {
   toDoItems: [
     { id: 1, content: 'Buy groceries', complete: false },
@@ -114,7 +114,7 @@ The state context object is created in your application by importing `createCont
 
 <br />
 
-```jsx lineNumbers=true
+```jsx
 const exampleContext = createContext();
 ```
 
@@ -128,7 +128,7 @@ Here's an example of what an `action` object looks like.
 
 <br />
 
-```jsx lineNumbers=true
+```jsx
 const action = {
   type: 'ADD_TODO',
   payload: { id: 3, content: 'Marty, we have to go back!' }
@@ -147,7 +147,7 @@ Additionally, the dispatch function can be invoked with an action object inside 
 
 <br />
 
-```jsx lineNumbers=true
+```jsx
 const [state, dispatch] = useStateValue(ExampleContext);
 
 const { inputText } = state;
